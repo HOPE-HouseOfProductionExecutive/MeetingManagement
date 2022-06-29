@@ -1,4 +1,4 @@
-# SABAR INI MASIH SALAH
+# SABAR INI MASIH SALAH JANGAN DIIKUTIN DULU
 # MeetingManagement
 
 **Cara Setup Github-nya Pertama Kali**
