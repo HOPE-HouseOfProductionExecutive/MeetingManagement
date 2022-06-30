@@ -1,0 +1,100 @@
+.full-dashboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1115px;
+  height: 952px;
+}
+
+.part-dashboard{
+  width: 1038px;
+  height: 877px;
+}
+
+
+.table-dashboard
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.statistic{
+  padding-bottom: 22px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.c1{
+  width: 207px;
+  height: 87px;
+  background: black;
+  border-radius: 14px;
+}
+
+.c2{
+  width: 315px;
+  height: 87px;
+  background: black;
+  border-radius: 14px;
+}
+
+.number{
+  width: 100px;
+}
+.time{
+  width: 500px;
+}
+.title{
+  width: 600px;
+}
+
+h3{
+  font: Inter;
+}
+
+.table-dashboard p{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.statistic h3{
+  padding: 17px 0 0 23px;
+  font-family: 'Inter';
+  font-size: 16px;
+  color: white;
+}
+
+.statistic p{
+  padding:10px 0 0 28px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 28px;
+  color: white;
+}
+
+.ct1{
+  width: 100%;
+  display: flex;
+}
+.ct2{
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.number_c{
+  width: 100px;
+}
+.time_c{
+  width: 500px;
+}
+.title_c{
+  width: 600px;
+}
