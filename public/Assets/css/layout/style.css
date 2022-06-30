@@ -1,0 +1,35 @@
+:root{
+    --aside-width: 20rem;
+    --aside-close: 4rem;
+    --nav-top-height: 4.5rem;
+    --aside-color: linear-gradient(360deg, #2094D6 0%, #8BBFDC 100%);
+}
+*{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    display: grid;
+    grid-template-areas:
+        'aside header'
+        'aside main';
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: var(--nav-top-height) 1fr;
+    height: 100vh;
+}
+
+.nav-left{
+    grid-area: aside;
+    background: var(--aside-color);
+}
+
+.session-info {
+    grid-area: header;
+    box-shadow: 0px 1px 43px rgba(0, 0, 0, 0.25);
+}
+.main-content {
+    grid-area: main;
+}
+
