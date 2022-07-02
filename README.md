@@ -7,6 +7,7 @@
 - Buka git bash di dalem file yang uda lu clone trus tulis **git remote add upstream (*link ssh utama*)**
 
 **Cara Tiap Kali Develop Fitur**
+- Tiap kali sebelum mulai lu fetch upstream dulu di fork an lu lewat web
 - Kalo mau buat fitur baru ***git branch (nama-fitur-jangan-di-spasi)***
 - Abis itu ***git checkout (nama-fitur-jangan-di-spasi)*** -> namanya harus sama kayak sebelumnya
 - **Jangan Lupa tiap kali mau ngerjain di pull -> git pull upstream main**
