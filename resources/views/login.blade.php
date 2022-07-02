@@ -16,7 +16,8 @@
                 <h2>Application</h2>
             </div>
             <div class="bottom">
-                <form action="" method="POST">
+                <form action="/login/user" method="POST">
+                    @csrf
                     <div class="input-placeholder">
                         <label for="email">Email</label>
                         <input autofocus type="email" name="email" id="email" placeholder="Enter Email" >
