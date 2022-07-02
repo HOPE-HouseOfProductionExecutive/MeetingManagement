@@ -11,7 +11,10 @@
 - Abis itu ***git checkout (nama-fitur-jangan-di-spasi)*** -> namanya harus sama kayak sebelumnya
 - **Jangan Lupa tiap kali mau ngerjain di pull -> git pull upstream main**
 - Kalo udah kelar ngodingnya -> ***git add -A***
-- Abis itu git commit -m "
+- Abis itu git commit -m "*Isi sama commentnya apa*"
+- Kalo udah di commit run ini **git checkout main**
+- Abis itu **git merge (nama-fitur-yang-sebelumnya) --no-ff**
+- Baru git push origin main
 
 **First Time Setup Laravelnya**
 - Buka foldernya yang uda lu clone trus buka cmd
