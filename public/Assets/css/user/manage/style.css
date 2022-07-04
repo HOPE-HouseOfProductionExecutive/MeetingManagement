@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.manage_layer{
+    padding: 20px 38px 41px 39px;
+}
+
+.manage_upper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+} 
+
+.manage_upper h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 44px;
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
+.td_box p{
+    padding: 8px 18px 9px 17px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.125em;
+
+    color: #000000;
+    background-color: #8FE29C;
+    border-radius: 8px;
+}
+
+.tabel_manage{
+    height: 826px;
+    background: #FFFFFF;
+    border-radius: 14px;
+}
+
+.head_tabel{
+    display: flex;
+    height: 34px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 9px;
+    border-bottom: 1.5px solid black;
+}
+
+.head_tabel p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.nomor{
+    width: 40px;
+    padding-left: 30px;
+}
+
+.waktu{
+    width: 140px;
+}
+
+.judul{
+    width: 180px;
+}
+
+.progres{
+    width: 140px;
+}
+
+.status{
+    width: 100px;
+}
+
+.kosong{
+    width: 180px;
+}
+
+.content_tabel{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid black;
+}
+
+.c_nomor{
+    width: 40px;
+    padding-left: 30px;
+}
+
+.c_waktu{
+    width: 140px;
+}
+
+.c_judul{
+    width: 180px;
+}
+
+.c_progres{
+    width: 140px;
+}
+
+.c_status{
+    width: 100px;
+}
+
+.pilihan{
+    width: 180px;
+    display: flex;
+}
+
+.ubah_box{
+    width: 63px;
+    height: 21px;
+    padding-right: 33px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hapus_box{
+    width: 69px;
+    height: 21px;
+    display: flex;
+    justify-content: space-between;
+}
