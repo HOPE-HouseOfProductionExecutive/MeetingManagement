@@ -60,6 +60,57 @@
     </div>
 </div>
 
+<div class="detail_rapat_popup">
+    <div class="inner_detail_popup">
+        <div class="status">
+            <p>selesai</p>
+        </div>
+        <div class="detail1">
+            <h2>Sabtu, 13 November 2022</h2>
+        </div>
+        <div class="detail2">
+            <div class="skdp_box">
+                <h4>SKDP
+                </h4>
+                <p>Dinas SDA</p>
+            </div>
+            <div class="dl_box">
+                <h4>
+                    Batas Waktu
+                </h4>
+                <p>18 Maret 2022</p>
+            </div>
+            <div class="dp_box">
+                <h4>
+                    Data Pendukung
+                </h4>
+                <p>18 Maret 2022</p>
+            </div>
+        </div>
+        <div class="detail3">
+            <div class="judul_box">
+                <h4>
+                    Judul Rapat
+                </h4>
+                <p>Menerima Audiensi DPWSRMI Hal : Menyelesaikan Permasalahan Miskomunikasi terkait Pekerjaan Naturalisasi Kali Mengacu pada Pergub 31 Tahun 2019</p>
+            </div>
+            <div class="progres_box">
+                <h4>
+                    Progres Rapat
+                </h4>
+                <p>Menerima Audiensi DPWSRMI Hal : Menyelesaikan Permasalahan Miskomunikasi terkait Pekerjaan Naturalisasi Kali Mengacu pada Pergub 31 Tahun 2019</p>
+            </div>
+            <div class="hasil_box">
+                <h4>
+                    Hasil Rapat
+                </h4>
+                <p>Mapping lapangan untuk mengetahui jumlah warga terdampak
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
