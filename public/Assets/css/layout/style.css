@@ -1,34 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root{
     --aside-width: 20rem;
-    --aside-close: 4rem;
+    --aside-close: 6rem;
     --nav-top-height: 4.5rem;
+
     --aside-color: linear-gradient(360deg, #2094D6 0%, #8BBFDC 100%);
 }
+
 *{
     text-decoration: none;
     padding: 0;
     margin: 0;
 }
 
+ul, li{
+    list-style: none;
+}
+
+
+
+.checkbox:checked ~ .main{
+    grid-template-columns: var(--aside-width) 1fr;
+
+}
 .main{
     display: grid;
     grid-template-areas:
         'aside header'
         'aside main';
-    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-columns: var(--aside-close) 1fr;
     grid-template-rows: var(--nav-top-height) 1fr;
     height: 100vh;
 }
 
+
 .nav-left{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--aside-width);
+    box-sizing: border-box;
+    padding: 2.25rem 1.375rem 0 0;
     grid-area: aside;
     background: var(--aside-color);
-    box-sizing: border-box;
-    padding-top: 1.8rem;
+    /* padding-top: 1.8rem; */
+    transition: all 0.5s ease;
+}
+.nav-left.active{
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    width: var(--aside-close);
 }
 
+.nav-left .sidebar-heading {
+    font-family: 'Inter';
+    font-style: normal;
+    color: #ffffff;
+    padding-bottom: 2.375rem;
+    margin: 0 20px;
+}
 
+.nav-left .sidebar-heading p {
+    /* line-height: 37px; */
+    width: 13.6rem;
+    font-size: 17px;
+    display: inline;
+}
+.nav-left.active .sidebar-heading p{
+    display: none;
+}
+
+.nav-left .sidebar-heading i {
+    font-size: 40px;
+    transform: translate(-50%, -30%);
+    position: absolute;
+    top: 2.7rem;
+    left: 90%;
+}
+.nav-left.active .sidebar-heading i {
+    left: 50%;
+}
+.nav-left.active ul{
+    margin-top: 2rem;
+}
+
+.nav-left.active ul li{
+    margin: 0;
+}
+.nav-left ul li{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    margin: 0 5px;
+    line-height: 50px;
+}
+
+.nav-left ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.nav-left ul li a .hover{
+    position: absolute;
+    left: 0;
+    display: none;
+}
+
+.nav-left ul li a:hover {
+    background: #fff;
+    color: #79B8DB;
+}
+.nav-left ul li a:hover .hover{
+    display: inline;
+}
+
+.nav-left ul li a img {
+    padding-left: 10px;
+    padding-right: 11px;
+    min-height: 26px;
+}
+.nav-left.active ul li a img {
+    margin-left: 11px;
+    padding : 0;
+}
+
+.nav-left ul li a span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 23px;
+    /* line-height: 28px; */
+}
+.nav-left.active ul li a span {
+    opacity: 0;
+}
 
 .session-info {
     grid-area: header;
