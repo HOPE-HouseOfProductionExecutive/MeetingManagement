@@ -10,10 +10,57 @@
 
     {{-- <script src=""></script> --}}
     <title>@yield('title')</title>
+    <style>
+        /* .main{
+            grid-template-columns: var(--aside-close) 1fr;
+        } */
+    </style>
 </head>
 <body>
+    <input type="checkbox" class="checkbox" id="click" hidden>
     <div class="main">
-        <div class="nav-left">
+        <div class="nav-left active">
+            <div class="sidebar-heading">
+                <p>Halo, {{Auth::user()->fullname}}</p>
+                <label for="click">
+                    <i class='bx bx-menu' id = 'ham-btn'></i>
+                </label>
+            </div>
+            <ul class="navlist">
+                <li>
+                    <a href="#">
+                        <img src="/Assets/icons/home-02.svg" alt="">
+                        <img class="hover" src="/Assets/icons/home.svg" alt="">
+                        <span class="links">Beranda</span>
+                    </a>
+                    {{-- <span class="tooltip">Beranda</span> --}}
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/Assets/icons/file-02.svg" alt="">
+                        <img class="hover" src="/Assets/icons/icon1.svg" alt="">
+                        <span class="links">Pengelolaan</span>
+                    </a>
+                    {{-- <span class="tooltip">Pengelolaan</span> --}}
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/Assets/icons/search-lg.svg" alt="">
+                        <img class="hover" src="/Assets/icons/search-lg-02.svg" alt="">
+                        <span class="links">Pencarian</span>
+                    </a>
+                    {{-- <span class="tooltip">Pencarian</span> --}}
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/Assets/icons/user-01.svg" alt="">
+                        <img class="hover" src="/Assets/icons/user-02.svg" alt="">
+                        <span class="links">Akun</span>
+                    </a>
+                    {{-- <span class="tooltip">Akun</span> --}}
+                </li>
+            </ul>
+
 
         </div>
         <div class="session-info">
@@ -78,6 +125,16 @@
     }
     showtime();
     setInterval(showtime, 1000);
+</script>
+<script type="text/javascript">
+    let btn = document.querySelector('#ham-btn');
+    let sidebar = document.querySelector('.nav-left');
+
+    btn.onclick = function(){
+        sidebar.classList.toggle("active");
+        document.getElementsByClassName("main").style.gridTemplateColumns  = "20rem 1fr";
+    }
+
 </script>
 </html>
 
