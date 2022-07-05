@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.manage_layer{
+    padding: 20px 38px 41px 39px;
+}
+
+.manage_upper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+} 
+
+.manage_upper h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 44px;
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
+.td_box p{
+    padding: 8px 18px 9px 17px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.125em;
+
+    color: #000000;
+    background-color: #8FE29C;
+    border-radius: 8px;
+}
+
+.tabel_manage{
+    height: 826px;
+    background: #FFFFFF;
+    border-radius: 14px;
+}
+
+.head_tabel{
+    display: flex;
+    height: 34px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 9px;
+    border-bottom: 1.5px solid black;
+}
+
+.head_tabel p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.nomor{
+    width: 40px;
+    padding-left: 30px;
+}
+
+.waktu{
+    width: 140px;
+}
+
+.judul{
+    width: 180px;
+}
+
+.progres{
+    width: 140px;
+}
+
+.status{
+    width: 100px;
+}
+
+.kosong{
+    width: 180px;
+}
+
+.content_tabel{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid black;
+}
+
+.c_nomor{
+    width: 40px;
+    padding-left: 30px;
+}
+
+.c_waktu{
+    width: 140px;
+}
+
+.c_judul{
+    width: 180px;
+}
+
+.c_progres{
+    width: 140px;
+}
+
+.c_status{
+    width: 100px;
+}
+
+.pilihan{
+    width: 180px;
+    display: flex;
+}
+
+.ubah_box{
+    width: 63px;
+    height: 21px;
+    padding-right: 33px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hapus_box{
+    width: 69px;
+    height: 21px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tambah_data_layer{
+    padding: 0 78px 0 78px;
+}
+
+.tambah_data_box{
+    display: flex;
+    flex-direction: column;
+    background: #359DD7;
+    border-radius: 11px;
+}
+
+.tambah_data_box h2{
+    padding: 15px 0 15px 28px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+
+.input_box{
+    padding: 17px 28px 0px 28px;
+}
+
+.input_box label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14=5px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.input_box input{
+    height: 67px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+    border-radius: 4px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.time{
+    padding: 17px 800px 0px 28px;
+}
+
+.time label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14=5px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.time input{
+    height: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+    border-radius: 4px;
+}
+
+.tombol_tambah{
+    display: flex;
+    justify-content: flex-end;
+    padding: 58px 28px 30px 0;
+}
+
+.tombol_tambah input{
+    cursor: pointer;
+    padding: 8px 18px;   
+    background: #8FE29C;
+    border-radius: 8px;
+    border: none;
+
+    font-family: 'Inter';
+    font-style: normal; 
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
+.perubahan_data_layer{
+    padding: 0 78px 0 78px;
+}
+
+.perubahan_status_box{
+    padding: 17px 800px 0px 28px;
+}
+
+.perubahan_status_box label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14=5px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.perubahan_status_box select{
+    height: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+    border-radius: 4px;
+}
+
+.tombol_selesai{
+    display: flex;
+    justify-content: flex-end;
+    padding: 58px 28px 30px 0;
+}
+
+.tombol_selesai input{
+    cursor: pointer;
+    padding: 9px 40px;   
+    background: #8FE29C;
+    border-radius: 8px;
+    border: none;
+
+    font-family: 'Inter';
+    font-style: normal; 
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
