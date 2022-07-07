@@ -174,11 +174,13 @@
 }
 
 .input_box input{
+    padding-left: 10px;
     height: 67px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border:none;
     border-radius: 4px;
+    font-size: 14px;
 }
 
 form{
@@ -186,11 +188,11 @@ form{
     flex-direction: column;
 }
 
-.time{
+.waktu_form{
     padding: 17px 800px 0px 28px;
 }
 
-.time label{
+.waktu_form label{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -200,7 +202,7 @@ form{
     color: #FFFFFF;
 }
 
-.time input{
+.waktu_form input{
     height: 25px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -284,3 +286,52 @@ form{
     color: #000000;
 }
 
+.hapus_layer{
+    padding: 399px 366px 0 366px;
+}
+
+.notifikasi_hapus_box{
+    width: 100%;
+    height: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 13px;
+    border: none;
+}
+
+.notifikasi_hapus_box img{
+    width: 87px;
+    height: 87px;
+}
+
+.hapus_layer p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
+.pilihan_hapus{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hapus_layer h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    /* identical to box height, or 100% */
+
+    letter-spacing: 0.11em;
+}

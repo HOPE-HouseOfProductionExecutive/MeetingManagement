@@ -98,13 +98,13 @@
                 <input type="text" id="data_pendukung" name="data_pendukung">
             </form>
         </div>
-        <div class="time">
+        <div class="waktu_form">
             <form action="">
                 <label for="batas_waktu">Batas Waktu</label>
                 <input type="date" id="batas_waktu" name="batas_waktu">
             </form>
         </div>
-        <div class="time">
+        <div class="waktu_form">
             <form action="">
                 <label for="waktu_rapat">Waktu Rapat</label>
                 <input type="date" id="waktu_rapat" name="waktu_rapat">
@@ -152,13 +152,13 @@
                 <input type="text" id="data_pendukung" name="data_pendukung">
             </form>
         </div>
-        <div class="time">
+        <div class="waktu_form">
             <form action="">
                 <label for="batas_waktu">Batas Waktu</label>
                 <input type="date" id="batas_waktu" name="batas_waktu">
             </form>
         </div>
-        <div class="time">
+        <div class="waktu_form">
             <form action="">
                 <label for="waktu_rapat">Waktu Rapat</label>
                 <input type="date" id="waktu_rapat" name="waktu_rapat">
@@ -179,6 +179,16 @@
     </div>
 </div>
 
+<div class="hapus_layer">
+    <div class="notifikasi_hapus_box">
+        <img src="/Assets/icons/alert-octagon.svg" alt="">
+        <p>Apakah anda yakin ingin menghapus data Rapat? </p>
+        <div class="pilihan">
+            <h2>IYA</h2>
+            <h2>TIDAK</h2>
+        </div>
+    </div>
+</div>
 
 
 {{-- ////////// --}}
