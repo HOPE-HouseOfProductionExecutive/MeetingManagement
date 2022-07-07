@@ -335,3 +335,9 @@ form{
 
     letter-spacing: 0.11em;
 }
+
+.pilihan{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

@@ -43,3 +43,7 @@ Route::get('/manage', function () {
 Route::get('/shortcut', function () {
     return View('user.shortcut');
 });
+
+Route::get('/account', function () {
+    return View('user.account');
+});

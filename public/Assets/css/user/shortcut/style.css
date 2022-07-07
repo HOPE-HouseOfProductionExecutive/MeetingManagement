@@ -1,0 +1,106 @@
+.shortcut_layer{
+    padding: 20px 38px 41px 39px;
+}
+
+.shortcut_upper{
+    width: 100%;
+}
+
+.shortcut_upper h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 44px;
+    letter-spacing: 0.125em;
+
+    color: #000000;
+}
+
+.shortcut_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.shortcut_waktu input{
+    width: 100%;
+    height: 27px;
+    background: #359DD7;
+    border-radius: 3px;
+    border: none;
+}
+
+.shortcut_status{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.shortcut_status select{
+    width: 100%;
+    height: 27px;
+    background: #359DD7;
+    border-radius: 3px;
+    border: none;
+}
+
+.shortcut_mencari{
+    width: 100%;
+    padding-top: 30px;
+}
+
+.shortcut_mencari h3{
+    width: fit-content;
+    padding: 10px 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.35em;
+    cursor: pointer;
+    color: #FFFFFF;
+
+    background: #5FADD9;
+    border-radius: 4px;
+}
+
+.shortcut_hasil_layer{
+    padding: 20px 38px 41px 39px;
+}
+
+.shortcut_judul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.shortcut_judul select{
+    width: 100%;
+    height: 27px;
+    background: #359DD7;
+    border-radius: 3px;
+    border: none;
+}
+
+.shortcut_layer p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.shortcut_hasil_layer{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+}
