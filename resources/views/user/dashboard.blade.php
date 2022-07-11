@@ -55,6 +55,7 @@
                 <div class="title_c">
                     <p>Pergerakan cinta satu</p>
                 </div>
+                <a href=""><img src="/Assets/icons/eye.svg" alt=""></a>
             </div>
         </div>
     </div>

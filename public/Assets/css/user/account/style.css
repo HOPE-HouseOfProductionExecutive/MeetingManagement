@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.akun_layer{
+    padding: 20px 38px 41px 39px;
+}
+
+.akun_upper{
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.akun_upper h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 44px;
+    letter-spacing: 0.125em;
+}
+
+.akun_detail{
+    width: 100%;
+    height: 80vh;
+    background: white;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.akun_kiri{
+    width: 20%;
+    height: 60%;
+    padding: 10px 10px;
+    border: 1px solid #000000;
+}
+
+.bod{
+    padding-top: 30px;
+}
+
+.akun_kanan{
+    width: 35%;
+    height: 60%;
+    background: #84BCDC;
+    border: 1px solid #000000;
+    border-radius: 0px 5px 5px 0px;
+    padding: 10px 10px;
+}
+
+.password{
+    height: 100%;
+}
+
+.password p{
+    padding-top: 30px;
+}
+
+.password form{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.password input{
+    padding-left: 10px;
+    height: 45px;
+    background: #F6F6F7;
+    border-radius: 5px;
+    border: none;
+}
+
+.konfirmasi input{
+    width: 100%;
+    background: #8FE29C;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}

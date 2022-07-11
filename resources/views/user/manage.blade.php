@@ -183,7 +183,7 @@
     <div class="notifikasi_hapus_box">
         <img src="/Assets/icons/alert-octagon.svg" alt="">
         <p>Apakah anda yakin ingin menghapus data Rapat? </p>
-        <div class="pilihan">
+        <div class="pilihan_box">
             <h2>IYA</h2>
             <h2>TIDAK</h2>
         </div>
