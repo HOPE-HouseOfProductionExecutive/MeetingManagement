@@ -8,7 +8,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-} 
+}
 
 .manage_upper h3{
     font-family: 'Inter';
@@ -218,13 +218,13 @@ form{
 
 .tombol_tambah input{
     cursor: pointer;
-    padding: 8px 18px;   
+    padding: 8px 18px;
     background: #8FE29C;
     border-radius: 8px;
     border: none;
 
     font-family: 'Inter';
-    font-style: normal; 
+    font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
@@ -269,13 +269,13 @@ form{
 
 .tombol_selesai input{
     cursor: pointer;
-    padding: 9px 40px;   
+    padding: 9px 40px;
     background: #8FE29C;
     border-radius: 8px;
     border: none;
 
     font-family: 'Inter';
-    font-style: normal; 
+    font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
@@ -336,7 +336,7 @@ form{
     letter-spacing: 0.11em;
 }
 
-.pilihan{
+.pilihan_box{
     width: 100%;
     display: flex;
     justify-content: space-around;

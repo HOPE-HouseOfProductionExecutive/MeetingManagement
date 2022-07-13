@@ -3,7 +3,6 @@
     --aside-width: 20rem;
     --aside-close: 6rem;
     --nav-top-height: 4.5rem;
-
     --aside-color: linear-gradient(360deg, #2094D6 0%, #8BBFDC 100%);
 }
 
@@ -23,6 +22,12 @@ ul, li{
     grid-template-columns: var(--aside-width) 1fr;
 
 }
+
+.checkbox:checked ~ .main .links{
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .main{
     display: grid;
     grid-template-areas:
@@ -32,7 +37,6 @@ ul, li{
     grid-template-rows: var(--nav-top-height) 1fr;
     height: 100vh;
 }
-
 
 .nav-left{
     position: fixed;
@@ -47,6 +51,7 @@ ul, li{
     /* padding-top: 1.8rem; */
     transition: all 0.5s ease;
 }
+
 .nav-left.active{
     padding-right: 1.5rem;
     padding-left: 1.5rem;
@@ -103,6 +108,11 @@ ul, li{
     position: relative;
     border-radius: 10px;
     transition: all 0.4s ease;
+}
+
+.nav-left ul li a .links {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .nav-left ul li a .hover{
