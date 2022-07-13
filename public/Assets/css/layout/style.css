@@ -48,6 +48,7 @@ ul, li{
     padding: 2.25rem 1.375rem 0 0;
     grid-area: aside;
     background: var(--aside-color);
+    z-index: 1;
     /* padding-top: 1.8rem; */
     transition: all 0.5s ease;
 }
@@ -184,6 +185,6 @@ ul, li{
     grid-area: main;
     position: relative;
     background: linear-gradient(0deg, rgba(6, 118, 181, 0.23) 0%, rgba(139, 191, 220, 0.161349) 44.93%, rgba(139, 191, 220, 0.063146) 75.28%, rgba(139, 191, 220, 0) 91.55%);
-    z-index: -1;
+    z-index: 0;
 }
 
