@@ -28,7 +28,7 @@
             </div>
             <ul class="navlist">
                 <li>
-                    <a href="#">
+                    <a href="/">
                         <img src="/Assets/icons/home-02.svg" alt="">
                         <img class="hover" src="/Assets/icons/home.svg" alt="">
                         <span class="links">Beranda</span>
@@ -36,7 +36,7 @@
                     {{-- <span class="tooltip">Beranda</span> --}}
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/manage">
                         <img src="/Assets/icons/file-02.svg" alt="">
                         <img class="hover" src="/Assets/icons/icon1.svg" alt="">
                         <span class="links">Pengelolaan</span>
@@ -44,7 +44,7 @@
                     {{-- <span class="tooltip">Pengelolaan</span> --}}
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/shortcut">
                         <img src="/Assets/icons/search-lg.svg" alt="">
                         <img class="hover" src="/Assets/icons/search-lg-02.svg" alt="">
                         <span class="links">Pencarian</span>
@@ -125,6 +125,7 @@
     }
     showtime();
     setInterval(showtime, 1000);
+
 </script>
 <script type="text/javascript">
     let btn = document.querySelector('#ham-btn');

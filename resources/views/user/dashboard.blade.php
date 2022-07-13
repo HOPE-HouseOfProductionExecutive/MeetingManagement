@@ -5,7 +5,6 @@
 {{-- ISI DISINI --}}
 
 <div class="full-dashboard">
-
     <div class="part-dashboard">
 
         <div class="statistic">
@@ -26,7 +25,7 @@
                 <p>6</p>
             </div>
         </div>
-        
+
         <div class="table-dashboard">
             <div class="ct1">
                 <div class="number">
@@ -111,7 +110,6 @@
         </div>
     </div>
 </div>
-
 
 
 
