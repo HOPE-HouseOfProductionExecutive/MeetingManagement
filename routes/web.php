@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,11 +17,20 @@ use Illuminate\Support\Facades\Session;
 |
 */
 Route::group(['middleware'=>['auth']], function(){
-    Route::get('/', function(){
-        return view('user.dashboard');
-    })->name('dashboard');
+    Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
 
-    
+    Route::get('/manage', function () {
+        return view('user.manage');
+    });
+
+    Route::get('/shortcut', function () {
+        return view('user.shortcut');
+    });
+
+    Route::get('/account', function () {
+        return view('user.account');
+    });
+
 
     Route::get('/logout', function () {
         Session::flush();
@@ -36,14 +46,3 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/manage', function () {
-    return View('user.manage');
-});
-
-Route::get('/shortcut', function () {
-    return View('user.shortcut');
-});
-
-Route::get('/account', function () {
-    return View('user.account');
-});
