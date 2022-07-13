@@ -13,7 +13,14 @@
 <div class="opacity" id="modal {{$item->id}}">
     <div class="detail_rapat_popup">
         <div class="inner_detail_popup">
-            <div class="status">
+            @php
+                if($item->keterangan == "Selesai"){
+                    $style = "background:#39A952";
+                }else{
+                    $style = "background:#FF0000";
+                }
+            @endphp
+            <div class="status" style={{$style}}>
                 <p>{{$item->keterangan}}</p>
             </div>
             <div class="detail1">
@@ -59,9 +66,7 @@
                     <p>{{$item->progress}}</p>
                 </div>
                 <div class="hasil_box">
-                    <h4></h4>
-                        Hasil Rapat
-                    </h4>
+                    <h4>Hasil Rapat</h4>
                     <p>{{$item->tindak_lanjut}}</p>
                 </div>
             </div>
