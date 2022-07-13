@@ -8,6 +8,8 @@
     {{-- Boxicons CDN --}}
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
+    {{-- JQUERY Ajax --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     {{-- <script src=""></script> --}}
     <title>@yield('title')</title>
     <style>
@@ -52,7 +54,7 @@
                     {{-- <span class="tooltip">Pencarian</span> --}}
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/account">
                         <img src="/Assets/icons/user-01.svg" alt="">
                         <img class="hover" src="/Assets/icons/user-02.svg" alt="">
                         <span class="links">Akun</span>

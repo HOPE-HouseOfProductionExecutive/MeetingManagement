@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.ct2 img{
-  padding-left: 200px;
+.ct2 button{
+  margin-left: 200px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 
@@ -105,8 +108,21 @@
 .title_c{
   width: 45%;
 }
+.opacity{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(4px);
+}
 
 .detail_rapat_popup{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top:50%;
+  left:50%;
+
   width: 467px;
   height: 556px;
   display: flex;
@@ -122,10 +138,9 @@
 }
 
 .status{
-  width: 105px;
+  min-width: 105px;
+  max-width: 180px;
   height: 20px;
-
-  background: #39A952;
   border-radius: 12px;
 }
 
@@ -145,7 +160,7 @@
   padding-bottom: 2px;
 }
 
-.detail1 h2{ 
+.detail1 h2{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -164,16 +179,16 @@
   border-top: 1px solid  black;
 }
 
-.detail2 h4{ 
+.detail2 h4{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px; 
+  line-height: 22px;
   text-align: center;
 }
 
-.detail2 p{ 
+.detail2 p{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -211,7 +226,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;  
+  line-height: 22px;
 }
 
 .detail3 p{
