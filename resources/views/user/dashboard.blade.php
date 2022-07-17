@@ -2,8 +2,68 @@
 @section('title', 'Dashboard')
 @section('content')
 <link rel="stylesheet" href="/Assets/css/user/dashboard/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/Assets/js/pagination.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 {{-- ISI DISINI --}}
-<!-- @foreach ($data as $item)
+<body onload="getData(0);">
+<div class="part-dashboard">
+
+    <div class="statistic">
+        <div class="c1">
+            <h3>Total Rapat</h3>
+            <p>143</p>
+        </div>
+        <div class="c1">
+            <h3>Rapat Selesai</h3>
+            <p>11</p>
+        </div>
+        <div class="c1">
+            <h3>Total Rapat Terdekat</h3>
+            <p>12</p>
+        </div>
+        <div class="c2">
+            <h3>Rapat Yang Berjalan</h3>
+            <p>6</p>
+        </div>
+    </div>
+
+    
+    <section id="table">
+        <table>
+            <thead>
+                <th>No</th>
+                <th>Waktu</th>
+                <th>Judul</th>
+            </thead>
+            <tbody id="content-table-body">
+                
+            </tbody>
+        </table>
+    </section>
+    <footer class="center-align">
+        <ul class="pagination">
+            <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="aktif"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!">6</a></li>
+            <li class="waves-effect"><a href="#!">7</a></li>
+            <li class="waves-effect"><a href="#!">8</a></li>
+            <li class="waves-effect"><a href="#!">9</a></li>
+            <li class="waves-effect"><a href="#!">10</a></li>
+            <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </footer>
+</div>
+</body>
+@foreach ($data as $item)
 @php
     $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
     $time->settings(['formatFunction' => 'translatedFormat']);
@@ -72,31 +132,13 @@
             </div>
         </div>
     </div>
-
 </div>
 @endforeach
+<!-- 
+
 
 <div class="full-dashboard">
-    <div class="part-dashboard">
-
-        <div class="statistic">
-            <div class="c1">
-                <h3>Total Rapat</h3>
-                <p>143</p>
-            </div>
-            <div class="c1">
-                <h3>Rapat Selesai</h3>
-                <p>11</p>
-            </div>
-            <div class="c1">
-                <h3>Total Rapat Terdekat</h3>
-                <p>12</p>
-            </div>
-            <div class="c2">
-                <h3>Rapat Yang Berjalan</h3>
-                <p>6</p>
-            </div>
-        </div>
+   
 
         <div class="table-dashboard">
             <div class="ct1">
@@ -141,46 +183,7 @@
 </div> -->
 
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/Assets/js/pagination.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/Assets/css/user/pagination/style.css">
-
-<body onload="getData(0);">
-    
-    <section id="table">
-        <table>
-            <thead>
-                <th>No</th>
-                <th>Waktu</th>
-                <th>Judul</th>
-            </thead>
-            <tbody id="content-table-body">
-                
-            </tbody>
-        </table>
-    </section>
-    <footer class="center-align">
-        <ul class="pagination">
-            <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!">6</a></li>
-            <li class="waves-effect"><a href="#!">7</a></li>
-            <li class="waves-effect"><a href="#!">8</a></li>
-            <li class="waves-effect"><a href="#!">9</a></li>
-            <li class="waves-effect"><a href="#!">10</a></li>
-            <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-    </footer>
-
+ 
 <script>
 
     function getData(index){
@@ -194,8 +197,9 @@
                 html += "<tr>";
                 
                 html += "<td>" + (i+1) + "</td>";
-                html += "<td>" + data[i].waktu_rapat + "</td>";
+                html += "<td>" + data[i].waktu_rapat +"</td>";
                 html += "<td>" + data[i].judul + "</td>";
+                html += "<td class='mata'><button id='" + data[i].id + "' onclick='onClickModalOpen(this.id)'><a href='#'><img  src='/Assets/icons/eye.svg'/></a></td>";
     
                 total += 1;
                 html += "</tr>";
@@ -207,14 +211,12 @@
         });
     }
 
-    
-
 
     function handleNumberClick (clickedLink, leftArrow, rightArrow)
     {
         
         console.log(clickedLink);
-        clickedLink.parentElement.classList = "active";
+        clickedLink.parentElement.classList = "aktif";
         let clickedLinkPageNumber = parseInt(clickedLink.innerText); 
         console.log((clickedLinkPageNumber*10) - 10);
         getData(((clickedLinkPageNumber * 10) - 10));
@@ -269,7 +271,7 @@
         element.addEventListener("click", function() {
             leftArrow = document.querySelector('.left-arrow');
             rightArrow = document.querySelector('.right-arrow');
-            activeLink = document.querySelector('.active');
+            activeLink = document.querySelector('.aktif');
             
             activePageNumber = parseInt(activeLink.innerText);
             
@@ -278,7 +280,7 @@
             }
 
             activeLink.classList = "waves-effect";
-            activeLink.classList.remove('active');
+            activeLink.classList.remove('aktif');
 
             if(this.innerText === 'chevron_left'){
                 handleLeftArrowClick();
@@ -301,13 +303,11 @@
     function onClickModalOpen(id){
         var modalid = "modal " + id;
         var modal = document.getElementById(modalid);
-        // console.log(modal);
         modal.style.display = "block";
     }
 
     window.onclick = function(event) {
         const eventModal = event.target.id;
-        // console.log(tes);
         if(eventModal.includes("modal")){
             const modal = document.getElementById(eventModal);
             modal.style.display = "none";
@@ -317,6 +317,5 @@
 
 </script>
 
-{{-- ////////// --}}
 @endsection
 
