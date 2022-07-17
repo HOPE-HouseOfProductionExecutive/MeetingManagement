@@ -1,45 +1,33 @@
 @extends('layout.main')
-@section('title', 'Dashboard')
+@section('title', 'Registrasi Akun')
 @section('content')
+<link rel="stylesheet" href="Assets/css/master/register/style.css">
 
-<link rel="stylesheet" href="Assets/css/user/manage/style.css">
 
 <div class="opacity" id="modal tambah">
     <div class="tambah_data_layer">
         <div class="tambah_data_box">
             <h2>
-                Penambahan Data Rapat
+                Penambahan Data User
             </h2>
             <hr>
-            <form action="/store" method="POST">
+            <form action=" /register/user" method="POST">
                 @csrf
                 <div class="input_box">
-                    <label for="judul_rapat">Judul Rapat</label>
-                    <input type="text" id="judul_rapat" name="judul_rapat">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name">
                 </div>
                 <div class="input_box">
-                    <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
-                    <input type="text" id="tindak_lanjut" name="tindak_lanjut">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
                 </div>
-                <div class="input_box">
-                    <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
-                    <input type="text" id="penanggung_jawab" name="penanggung_jawab">
-                </div>
-                <div class="input_box">
-                    <label for="progres_rapat">Progres</label>
-                    <input type="text" id="progres_rapat" name="progres_rapat">
-                </div>
-                <div class="input_box">
-                    <label for="data_pendukung">Data Pendukung</label>
-                    <input type="text" id="data_pendukung" name="data_pendukung">
-                </div>
-                <div class="waktu_form">
-                    <label for="batas_waktu">Batas Waktu</label>
-                    <input type="date" id="batas_waktu" name="batas_waktu">
-                </div>
-                <div class="waktu_form">
-                    <label for="waktu_rapat">Waktu Rapat</label>
-                    <input type="date" id="waktu_rapat" name="waktu_rapat">
+                <div class="perubahan_status_box">
+                    <label for="role">Role</label>
+                    <select id="role" name="role">
+                        <option value=""></option>
+                        <option value="1">Viewer</option>
+                        <option value="2">Admin</option>
+                    </select>
                 </div>
                 <div class="tombol_tambah">
                     <input type="submit" value="Tambah Data">
@@ -48,7 +36,7 @@
         </div>
     </div>
 </div>
-{{-- 
+{{--
 <div class="perubahan_data_layer">
     <div class="tambah_data_box">
         <h2>
@@ -114,7 +102,7 @@
 
 <div class="manage_layer">
     <div class="manage_upper">
-        <h3>Pengelolaan Data</h3>
+        <h3>Registrasi User</h3>
         <div class="td_box">
             <button id="tambah" onclick="onClickModalTambah()">Tambah Data</button>
         </div>
@@ -125,16 +113,13 @@
                 <p>No</p>
             </div>
             <div class="waktu">
-                <p>Waktu</p>
+                <p>Nama</p>
             </div>
             <div class="judul">
-                <p>Judul</p>
+                <p>Role</p>
             </div>
             <div class="progres">
-                <p>Progres</p>
-            </div>
-            <div class="status">
-                <p>Status</p>
+                <p>Email</p>
             </div>
             <div class="kosong">
 
@@ -152,9 +137,6 @@
             </div>
             <div class="c_progres">
                 <p>Sudah dilakukan</p>
-            </div>
-            <div class="c_status">
-                <p>Belum Selesai</p>
             </div>
             <div class="pilihan">
                 <div class="ubah_box">
@@ -199,5 +181,7 @@
     }
 
 </script>
+
+
 
 @endsection

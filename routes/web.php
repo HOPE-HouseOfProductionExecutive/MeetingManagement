@@ -23,6 +23,8 @@ Route::group(['middleware'=>['auth']], function(){
         return view('user.manage');
     });
 
+    Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
+
     Route::get('/shortcut', function () {
         return view('user.shortcut');
     });
@@ -31,6 +33,10 @@ Route::group(['middleware'=>['auth']], function(){
         return view('user.account');
     });
 
+    Route::get('/register', function () {
+        return view('master.register');
+    });
+    Route::post('/register/user', [UserController::class, 'register'])->name('register.user');
 
     Route::get('/logout', function () {
         Session::flush();
