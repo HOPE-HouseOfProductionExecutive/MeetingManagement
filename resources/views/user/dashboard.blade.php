@@ -218,74 +218,110 @@
         console.log(clickedLink);
         clickedLink.parentElement.classList = "aktif";
         let clickedLinkPageNumber = parseInt(clickedLink.innerText); 
-        console.log((clickedLinkPageNumber*10) - 10);
+        // console.log((clickedLinkPageNumber*10) - 10);
         getData(((clickedLinkPageNumber * 10) - 10));
         
 
-        // switch (clickedLinkPageNumber) {
-        //     case 1:
-        //         disableLeftArrow();
-        //         if(rightArrow.className.indexOf("disabled") !== -1) {
-        //             enableRightArrow();
-        //         }
-        //         break;
-        //     case 10:
-        //         break;
-        //     default:
-        //         break;
-        // }
+        switch (clickedLinkPageNumber) {
+            case 1:
+                disableLeftArrow(leftArrow);
+                if(rightArrow.className.indexOf("disabled") !== -1) {
+                    enableRightArrow(rightArrow);
+                }
+                break;
+            case 10:
+                disableRightArrow(rightArrow);
+                if (leftArrow.className.indexOf('disabled') !== -1) {
+                    enableLeftArrow(leftArrow);
+                }
+                break;
+            default:
+                if (leftArrow.className.indexOf('disabled') !== -1) {
+                    enableLeftArrow(leftArrow);
+                }
+                if (rightArrow.className.indexOf('disabled') !== -1) {
+                    enableRightArrow(rightArrow);
+                }
+                break;
+        }
     }
 
-    function handleLeftArrowClick()
-    {
-
+    function handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow) {
+    //move to previous page
+    let previousPage = document.querySelectorAll('li')[aktifPageNumber-1];
+    previousPage.classList = "aktif";
+    getData(((aktifPageNumber-1) * 10) - 10);
+ 
+   
+    if (aktifPageNumber === 10) {
+        enableRightArrow(rightArrow);
     }
 
-    function handleRightArrowClick()
-    {
+    if (aktifPageNumber - 1 === 1) {
+        disableLeftArrow(leftArrow);
+    }
+}
 
+function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
+    //move to next page
+    let nextPage = document.querySelectorAll('li')[aktifPageNumber+1];
+    nextPage.classList = "aktif";
+
+    getData(((aktifPageNumber+1) * 10) - 10);
+    
+
+    if (aktifPageNumber === 1) {
+        enableLeftArrow(leftArrow);
     }
 
-    function disableLeftArrow(){
-        
+    if (aktifPageNumber + 1 === 10) {
+        disableRightArrow(rightArrow);
     }
-    function enableLeftArrow(){
+}
 
-    }
+    function disableLeftArrow(leftArrow) {
+        leftArrow.classList = "disabled arrow-left";
+}
 
-    function disableRightArrow(){
-        
-    }
-    function enableRightArrow(){
+    function enableLeftArrow(leftArrow) {
+        leftArrow.classList = "waves-effect arrow-left";
+}
 
-    }
+    function disableRightArrow(rightArrow) {
+        rightArrow.classList = "disabled arrow-right";
+}
+
+    function enableRightArrow(rightArrow) {
+        rightArrow.classList = "waves-effect arrow-right";
+}
 
     let pageLinks = document.querySelectorAll('a');
-    let activePageNumber;
+    let aktifPageNumber;
     let clickedLink;
     let nextPage;
     let leftArrow;
     let rightArrow;
     let url = '';
+    
     pageLinks.forEach((element) => {
         element.addEventListener("click", function() {
-            leftArrow = document.querySelector('.left-arrow');
-            rightArrow = document.querySelector('.right-arrow');
-            activeLink = document.querySelector('.aktif');
+            leftArrow = document.querySelector('.arrow-left');
+            rightArrow = document.querySelector('.arrow-right');
+            aktifLink = document.querySelector('.aktif');
             
-            activePageNumber = parseInt(activeLink.innerText);
+            aktifPageNumber = parseInt(aktifLink.innerText);
             
-            if ((this.innerText === 'chevron_left' && activePageNumber === 1) || (this.innerText === 'chevron_right' && activePageNumber === 10)) {
+            if ((this.innerText === 'chevron_left' && aktifPageNumber === 1) || (this.innerText === 'chevron_right' && aktifPageNumber === 10)) {
             return;
             }
 
-            activeLink.classList = "waves-effect";
-            activeLink.classList.remove('aktif');
+            aktifLink.classList = "waves-effect";
+            aktifLink.classList.remove('aktif');
 
             if(this.innerText === 'chevron_left'){
-                handleLeftArrowClick();
+                handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow);
             }else if (this.innerText === 'chevron_right'){
-                handleRightArrowClick();
+                handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow);
             }else {
                 handleNumberClick(this, leftArrow, rightArrow);
             }
