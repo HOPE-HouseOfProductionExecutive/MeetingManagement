@@ -10,7 +10,7 @@
 <script src="/Assets/js/pagination.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
+<p>test version</p>
 <div class="opacity" id="modal tambah">
     <div class="tambah_data_layer">
         <div class="tambah_data_box">
