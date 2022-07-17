@@ -25,7 +25,7 @@
             <div class="sidebar-heading">
                 <p>Halo, {{Auth::user()->fullname}}</p>
                 <label for="click">
-                    <i class='bx bx-menu' id = 'ham-btn'></i>
+                    <i class='bx bx-menu' style="color: #fff;" id = 'ham-btn'></i>
                 </label>
             </div>
             <ul class="navlist">
