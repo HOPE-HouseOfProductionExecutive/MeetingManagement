@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .manage_layer{
-    height:100%;
     box-sizing: border-box;
     padding: 20px 38px 41px 39px;
 }
 
 .manage_upper{
     width: 100%;
-    height: 10%;
     display: flex;
     justify-content: space-between;
 }
@@ -41,8 +39,7 @@
 }
 
 .tabel_manage{
-    /* height: 826px; */
-    height: 90%;
+    height: 826px;
     background: #FFFFFF;
     border-radius: 14px;
 }

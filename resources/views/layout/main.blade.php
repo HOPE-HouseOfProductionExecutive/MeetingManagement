@@ -21,7 +21,7 @@
 <body>
     <input type="checkbox" class="checkbox" id="click" hidden>
     <div class="main">
-        <div class="nav-left active">
+        <div class="nav-left aktip">
             <div class="sidebar-heading">
                 <p>Halo, {{Auth::user()->fullname}}</p>
                 <label for="click">
@@ -45,6 +45,7 @@
                     </a>
                     {{-- <span class="tooltip">Pengelolaan</span> --}}
                 </li>
+
                 <li>
                     <a href="/shortcut">
                         <img src="/Assets/icons/search-lg.svg" alt="">
@@ -52,6 +53,14 @@
                         <span class="links">Pencarian</span>
                     </a>
                     {{-- <span class="tooltip">Pencarian</span> --}}
+                </li>
+                <li>
+                    <a href="/register">
+                        <img src="/Assets/icons/users-plus.svg" alt="">
+                        <img class="hover" src="/Assets/icons/users-plus1.svg" alt="">
+                        <span class="links">Registrasi</span>
+                    </a>
+                    {{-- <span class="tooltip">Akun</span> --}}
                 </li>
                 <li>
                     <a href="/account">
@@ -134,7 +143,7 @@
     let sidebar = document.querySelector('.nav-left');
 
     btn.onclick = function(){
-        sidebar.classList.toggle("active");
+        sidebar.classList.toggle("aktip");
         document.getElementsByClassName("main").style.gridTemplateColumns  = "20rem 1fr";
     }
 
