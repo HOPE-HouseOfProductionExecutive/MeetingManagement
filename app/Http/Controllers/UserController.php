@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,6 +26,40 @@ class UserController extends Controller
         return redirect()->back()->withErrors([
             'email' => "Wrong Email or Password"
         ]);
+    }
+    public function register(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+        ]);
+        $user = new User();
+        $user->fullname = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('12345678');
+        $user->permissions = $request->role;
+        $user->save();
+        return redirect()->back()->with('success', 'User added successfully');
+    }
+
+    public function deleteUser(Request $request){
+        $user = User::find($request->id);
+        $user->delete();
+        return redirect()->back()->with('success', 'User deleted successfully');
+    }
+
+    public function updateUser(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'role' => 'required',
+        ]);
+        $user = User::find($request->id);
+        $user->fullname = $request->name;
+        $user->email = $request->email;
+        $user->permissions = $request->role;
+        $user->save();
+        return redirect()->back()->with('success', 'User updated successfully');
     }
 
 }
