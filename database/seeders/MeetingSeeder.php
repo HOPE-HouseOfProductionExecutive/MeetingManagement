@@ -17,7 +17,7 @@ class MeetingSeeder extends Seeder
     {
         DB::table('meetings')->insert([
             [
-                'id' => 1,
+                // 'id' => 1,
                 'judul' => 'Meeting 1',
                 'tindak_lanjut' => 'Meeting 1',
                 'progress' => 'Meeting 1',
@@ -28,7 +28,7 @@ class MeetingSeeder extends Seeder
                 'waktu_selesai' => '2020-07-13',
             ],
             [
-                'id' => 2,
+                // 'id' => 2,
                 'judul' => 'Meeting 2',
                 'tindak_lanjut' => 'Meeting 2',
                 'progress' => 'Meeting 2',
@@ -39,7 +39,7 @@ class MeetingSeeder extends Seeder
                 'waktu_selesai' => '2020-07-13',
             ],
             [
-                'id' => 3,
+                // 'id' => 3,
                 'judul' => 'Meeting 3',
                 'tindak_lanjut' => 'Meeting 3',
                 'progress' => 'Meeting 3',
@@ -50,7 +50,7 @@ class MeetingSeeder extends Seeder
                 'waktu_selesai' => '2020-07-22',
             ],
             [
-                'id' => 4,
+                // 'id' => 4,
                 'judul' => 'Meeting 4',
                 'tindak_lanjut' => 'Meeting 4',
                 'progress' => 'Meeting 4',
