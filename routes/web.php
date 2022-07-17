@@ -57,3 +57,8 @@ Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
 Route::get('/pagination', function(){
     return view('user.pagination');
 });
+
+Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
+Route::get('/pagination', function(){
+    return view('user.manage');
+});

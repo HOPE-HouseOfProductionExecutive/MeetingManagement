@@ -1,14 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.manage_layer td{
+    padding: 10px 15px;
+  }
+  
+  .manage_layer th{
+    padding: 15px 15px;
+  }
+  
+  thead tr{
+    border-bottom: 2px solid #ECF0F3;
+  }
+  
+  tbody tr{
+    box-sizing: border-box;
+    border-bottom: 1px solid #ECF0F3;
+  }
+  
+  section{
+    background: #FFFFFF;
+    border-radius: 14px;
+  }
+  
+  .pagination li.aktif {
+    background-color: #3FA1D7;
+  }
+
+footer{
+    position: absolute;
+    bottom: 17px;
+    left: 33%;
+}
+button{
+    border-style: none;
+    background:none;
+  }
+
+.trash{
+    width: 10px;
+    height: 40px;
+    cursor: pointer;
+  }
+.edit{
+    width: 10px;
+    height: 40px;
+    cursor: pointer;
+  }
 
 .manage_layer{
     box-sizing: border-box;
-    padding: 20px 38px 41px 39px;
+    padding: 20px 38px 5px 39px;
 }
 
 .manage_upper{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .manage_upper h3{
@@ -18,7 +65,7 @@
     font-size: 24px;
     line-height: 44px;
     letter-spacing: 0.125em;
-
+    margin:0;
     color: #000000;
 }
 
