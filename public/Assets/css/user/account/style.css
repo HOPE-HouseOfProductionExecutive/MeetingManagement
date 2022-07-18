@@ -32,18 +32,13 @@
     flex-direction: column;
 }
 
-.box_upper{
-    display: flex;
-    padding-left: 39px;
-}
-
-.box_upper p{
+.separate h2{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
     line-height: 36px;
-
+    padding-bottom: 20px;
     color: #000000;
 }
 
@@ -59,7 +54,7 @@
     padding-right: 100px;
     padding-top: 20px;
     width: 40%;
-    height: 150px;
+    height: 200px;
 }
 
 .rincian_nama{
@@ -120,7 +115,7 @@ form{
 .konfirm button{
     width: 186.79px;
     height: 46px;
-    
+
     border-radius: 8px;
     background: #5FADD9;
     border: none;

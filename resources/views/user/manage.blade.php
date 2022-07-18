@@ -24,7 +24,7 @@
                 @csrf
                 <div class="input_box">
                     <label for="judul_rapat">Judul Rapat</label>
-                    <input type="text" id="judul_rapat" name="judul_rapat" style=" background-color: white;padding-left: 10px;
+                    <input required type="text" id="judul_rapat" name="judul_rapat" style=" background-color: white;padding-left: 10px;
                     height: 30px;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border:none;
@@ -33,7 +33,7 @@
                 </div>
                 <div class="input_box">
                     <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
-                    <input type="text" id="tindak_lanjut" name="tindak_lanjut" style=" background-color: white;padding-left: 10px;
+                    <input required type="text" id="tindak_lanjut" name="tindak_lanjut" style=" background-color: white;padding-left: 10px;
                     height: 30px;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border:none;
@@ -42,7 +42,7 @@
                 </div>
                 <div class="input_box">
                     <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
-                    <input type="text" id="penanggung_jawab" name="penanggung_jawab" style=" background-color: white;padding-left: 10px;
+                    <input required type="text" id="penanggung_jawab" name="penanggung_jawab" style=" background-color: white;padding-left: 10px;
                     height: 30px;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border:none;
@@ -51,7 +51,7 @@
                 </div>
                 <div class="input_box">
                     <label for="progres_rapat">Progres</label>
-                    <input type="text" id="progres_rapat" name="progres_rapat" style=" background-color: white;padding-left: 10px;
+                    <input required type="text" id="progres_rapat" name="progres_rapat" style=" background-color: white;padding-left: 10px;
                     height: 30px;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border:none;
@@ -69,7 +69,7 @@
                 </div>
                 <div class="waktu_form">
                     <label for="batas_waktu">Batas Waktu</label>
-                    <input type="date" id="batas_waktu" name="batas_waktu" style="height: 25px;
+                    <input required type="date" id="batas_waktu" name="batas_waktu" style="height: 25px;
                     padding-left: 10px;
                     background: #FFFFFF;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -79,7 +79,7 @@
                 </div>
                 <div class="waktu_form">
                     <label for="waktu_rapat">Waktu Rapat</label>
-                    <input type="date" id="waktu_rapat" name="waktu_rapat" style="height: 25px;
+                    <input required type="date" id="waktu_rapat" name="waktu_rapat" style="height: 25px;
                     padding-left: 10px;
                     background: #FFFFFF;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -109,7 +109,7 @@
                 <input type="hidden" name="id" value="{{$item->id}}">
                 <div class="input_box">
                     <label for="judul_rapat">Judul Rapat</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
@@ -118,7 +118,7 @@
                 </div>
                 <div class="input_box">
                     <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
@@ -128,7 +128,7 @@
                 </div>
                 <div class="input_box">
                     <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
@@ -138,7 +138,7 @@
                 </div>
                 <div class="input_box">
                     <label for="progres_rapat">Progres</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
@@ -158,7 +158,7 @@
                 </div>
                 <div class="waktu_form">
                     <label for="batas_waktu">Batas Waktu</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
@@ -168,7 +168,7 @@
                 </div>
                 <div class="waktu_form">
                     <label for="waktu_rapat">Waktu Rapat</label>
-                    <input style=" background-color: white;padding-left: 10px;
+                    <input required style=" background-color: white;padding-left: 10px;
                         height: 30px;
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;

@@ -18,9 +18,8 @@ use Illuminate\Support\Facades\Session;
 |
 */
 Route::group(['middleware'=>['auth']], function(){
-    
-    Route::group(['middleware'=>['master']], function(){
 
+    Route::group(['middleware'=>['master']], function(){
         Route::get('/pagination/users', [UserController::class, 'jsonUser']);
         Route::get('/register', [UserController::class, 'getUser']);
         Route::post('/register/user', [UserController::class, 'register'])->name('register.user');
@@ -32,8 +31,6 @@ Route::group(['middleware'=>['auth']], function(){
         Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
         Route::put('/update', [MeetingController::class, 'updateMeetingData']);
         Route::delete('/delete', [MeetingController::class, 'deleteMeetingData']);
-
-
     });
 
     Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
@@ -46,6 +43,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/account', function () {
         return view('user.account');
     });
+    Route::put('/update/password', [UserController::class, 'updatePassword']);
 
     Route::get('/logout', function () {
         Session::flush();
