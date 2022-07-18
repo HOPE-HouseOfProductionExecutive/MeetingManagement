@@ -32,6 +32,10 @@
             </div>
         </div>
     </div>
+
+    <div class="box_popup">
+        <img src="/Assets/icons/Delete-caution.svg">
+    </div>
 </body>
 
 
