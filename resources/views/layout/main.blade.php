@@ -67,6 +67,14 @@
                     </a>
                     {{-- <span class="tooltip">Akun</span> --}}
                 </li>
+                <li>
+                    <a href="/userguide">
+                        <img src="/Assets/icons/file-question-white.svg" alt="">
+                        <img class="hover" src="/Assets/icons/file-question-blue.svg" alt="">
+                        <span class="links">Bantuan</span>
+                    </a>
+                    {{-- <span class="tooltip">Akun</span> --}}
+                </li>
             </ul>
 
 
