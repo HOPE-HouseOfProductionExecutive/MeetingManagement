@@ -1,16 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.manage_layer{
-    height:100%;
+.manage_layer td{
+    padding: 10px 15px;
+  }
+  
+  .manage_layer th{
+    padding: 15px 15px;
+  }
+  
+  thead tr{
+    border-bottom: 2px solid #ECF0F3;
+  }
+  
+  tbody tr{
     box-sizing: border-box;
-    padding: 20px 38px 41px 39px;
+    border-bottom: 1px solid #ECF0F3;
+  }
+  
+  section{
+    background: #FFFFFF;
+    border-radius: 14px;
+  }
+  
+  .pagination li.aktif {
+    background-color: #3FA1D7;
+  }
+
+footer{
+    position: absolute;
+    bottom: 17px;
+    left: 33%;
+}
+button{
+    border-style: none;
+    background:none;
+  }
+
+.trash{
+    width: 10px;
+    height: 40px;
+    cursor: pointer;
+  }
+.edit{
+    width: 10px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+.manage_layer{
+    box-sizing: border-box;
+    padding: 20px 38px 5px 39px;
 }
 
 .manage_upper{
     width: 100%;
     height: 10%;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .manage_upper h3{
@@ -20,6 +68,7 @@
     font-size: 24px;
     line-height: 44px;
     letter-spacing: 0.125em;
+    margin: 0;
 
     color: #000000;
 }
@@ -65,24 +114,23 @@
 }
 
 .nomor{
-    width: 40px;
-    padding-left: 30px;
+    width: 5%;
 }
 
 .waktu{
-    width: 140px;
+    width: 13%;
 }
 
 .judul{
-    width: 180px;
-}
-
-.progres{
-    width: 140px;
+    width: 48%;
 }
 
 .status{
     width: 100px;
+}
+
+.progres{
+    width: 16%;
 }
 
 .kosong{
@@ -160,6 +208,7 @@
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
+    margin: 0;
     /* identical to box height */
 
     letter-spacing: 0.1em;
@@ -168,7 +217,7 @@
 }
 
 .input_box{
-    padding: 17px 28px 0px 28px;
+    padding: 10px 28px 0px 28px;
 }
 
 .input_box label{
@@ -181,15 +230,6 @@
     color: #FFFFFF;
 }
 
-.input_box input{
-    padding-left: 10px;
-    height: 67px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border:none;
-    border-radius: 4px;
-    font-size: 14px;
-}
 
 form{
     display: flex;
@@ -221,7 +261,7 @@ form{
 .tombol_tambah{
     display: flex;
     justify-content: flex-end;
-    padding: 58px 28px 30px 0;
+    padding: 10px 28px 30px 0;
 }
 
 .tombol_tambah input{
@@ -353,6 +393,7 @@ form{
 .opacity{
     display: none;
     position: absolute;
+    z-index: 99999999;
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.22);
