@@ -42,10 +42,11 @@ Route::group(['middleware'=>['auth']], function(){
         return view('user.account');
     });
 
-    Route::get('/register', function () {
-        return view('master.register');
-    });
+    Route::get('/pagination/users', [UserController::class, 'jsonUser']);
+
+    Route::get('/register', [UserController::class, 'getUser']);
     Route::post('/register/user', [UserController::class, 'register'])->name('register.user');
+    Route::delete('/delete/user', [UserController::class, 'deleteUser'])->name('delete.user');
 
     Route::get('/logout', function () {
         Session::flush();

@@ -27,6 +27,15 @@ class UserController extends Controller
             'email' => "Wrong Email or Password"
         ]);
     }
+    public function getUser(){
+        $users = User::all();
+        return  view('master.register', compact('users'));
+    }
+    public function jsonUser(){
+        $users = User::all();
+        return response()->json($users);
+    }
+
     public function register(Request $request){
         $request->validate([
             'name' => 'required',
@@ -37,7 +46,7 @@ class UserController extends Controller
         $user->fullname = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make('12345678');
-        $user->permissions = $request->role;
+        $user->permission_id = $request->role;
         $user->save();
         return redirect()->back()->with('success', 'User added successfully');
     }

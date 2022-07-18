@@ -94,6 +94,7 @@
         </div>
     </div>
 </div>
+
 @foreach ($data as $item)
 <div class="opacity" id="modal {{$item->id}}">
     <div class="tambah_data_layer">
@@ -122,7 +123,8 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="text" id="tindak_lanjut" name="tindak_lanjut" value="{{$item->tindak_lanjut}}">
+                        font-size: 14px;" type="text" id="tindak_lanjut" name="tindak_lanjut"
+                        value="{{$item->tindak_lanjut}}">
                 </div>
                 <div class="input_box">
                     <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
@@ -131,7 +133,8 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="text" id="penanggung_jawab" name="penanggung_jawab" value="{{$item->SKPD}}">
+                        font-size: 14px;" type="text" id="penanggung_jawab" name="penanggung_jawab"
+                        value="{{$item->SKPD}}">
                 </div>
                 <div class="input_box">
                     <label for="progres_rapat">Progres</label>
@@ -140,7 +143,8 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="text" id="progres_rapat" name="progres_rapat" value="{{$item->progress}}">
+                        font-size: 14px;" type="text" id="progres_rapat" name="progres_rapat"
+                        value="{{$item->progress}}">
                 </div>
                 <div class="input_box">
                     <label for="data_pendukung">Data Pendukung</label>
@@ -149,7 +153,8 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="text" id="data_pendukung" name="data_pendukung" value="{{$item->data_pendukung}}">
+                        font-size: 14px;" type="text" id="data_pendukung" name="data_pendukung"
+                        value="{{$item->data_pendukung}}">
                 </div>
                 <div class="waktu_form">
                     <label for="batas_waktu">Batas Waktu</label>
@@ -158,7 +163,8 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="date" id="batas_waktu" name="batas_waktu" value="{{$item->waktu_selesai}}">
+                        font-size: 14px;" type="date" id="batas_waktu" name="batas_waktu"
+                        value="{{$item->waktu_selesai}}">
                 </div>
                 <div class="waktu_form">
                     <label for="waktu_rapat">Waktu Rapat</label>
@@ -167,14 +173,15 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="date" id="waktu_rapat" name="waktu_rapat" value="{{$item->waktu_rapat}}">
+                        font-size: 14px;" type="date" id="waktu_rapat" name="waktu_rapat"
+                        value="{{$item->waktu_rapat}}">
                 </div>
                 <div class="perubahan_status_box">
                     <label for="perubahan_status">Status</label>
                     <select id="status" name="status" style="display: block; padding: 0 0 0 10px; height: 30px;">
                         @if ($item->keterangan == 'Belum Selesai')
-                            <option value="Belum Selesai">Belum Selesai</option>
-                            <option value="Selesai">Selesai</option>
+                        <option value="Belum Selesai">Belum Selesai</option>
+                        <option value="Selesai">Selesai</option>
                         @else
                         <option value="Selesai">Selesai</option>
                         <option value="Belum Selesai">Belum Selesai</option>
@@ -188,8 +195,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="opacity" id="modal delete {{$item->id}}">
     <div class="hapus_layer">
         <div class="notifikasi_hapus_box">
@@ -209,44 +214,44 @@
 </div>
 @endforeach
 
-    <div class="manage_layer">
-        <div class="manage_upper">
-            <h3>Pengelolaan Data</h3>
-            <div class="td_box">
-                <button id="tambah" onclick="onClickModalTambah()">Tambah Data</button>
-            </div>
+<div class="manage_layer">
+    <div class="manage_upper">
+        <h3>Pengelolaan Data</h3>
+        <div class="td_box">
+            <button id="tambah" onclick="onClickModalTambah()">Tambah Data</button>
         </div>
-        <section id="table">
-            <table>
-                <thead>
-                    <th>No</th>
-                    <th>Waktu</th>
-                    <th>Judul</th>
-                    <th>Progres</th>
-                    <th>Status</th>
-                </thead>
-                <tbody id="content-table-body">
-
-                </tbody>
-            </table>
-        </section>
-        <footer class="center-align">
-            <ul class="pagination">
-                <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="aktif"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="#!">2</a></li>
-                <li class="waves-effect"><a href="#!">3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!">6</a></li>
-                <li class="waves-effect"><a href="#!">7</a></li>
-                <li class="waves-effect"><a href="#!">8</a></li>
-                <li class="waves-effect"><a href="#!">9</a></li>
-                <li class="waves-effect"><a href="#!">10</a></li>
-                <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
-        </footer>
     </div>
+    <section id="table">
+        <table>
+            <thead>
+                <th>No</th>
+                <th>Waktu</th>
+                <th>Judul</th>
+                <th>Progres</th>
+                <th>Status</th>
+            </thead>
+            <tbody id="content-table-body">
+
+            </tbody>
+        </table>
+    </section>
+    <footer class="center-align">
+        <ul class="pagination">
+            <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="aktif"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!">6</a></li>
+            <li class="waves-effect"><a href="#!">7</a></li>
+            <li class="waves-effect"><a href="#!">8</a></li>
+            <li class="waves-effect"><a href="#!">9</a></li>
+            <li class="waves-effect"><a href="#!">10</a></li>
+            <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </footer>
+</div>
 
 <script>
     function getData(index) {
@@ -404,19 +409,19 @@
         modal.style.display = "block";
     }
 
-    function onClickModalEdit(id){
+    function onClickModalEdit(id) {
         var modalid = "modal " + id;
         var modal = document.getElementById(modalid);
         modal.style.display = "block";
     }
 
-    function onClickModalDelete(id){
+    function onClickModalDelete(id) {
         var modalid = "modal delete " + id;
         var modal = document.getElementById(modalid);
         modal.style.display = "block";
     }
 
-    function onClickClose(id){
+    function onClickClose(id) {
         var modalid = "modal delete " + id;
         var modal = document.getElementById(modalid);
         // console.log(modalid);
@@ -430,6 +435,7 @@
             modal.style.display = "none";
         }
     }
+
 </script>
 
 @endsection
