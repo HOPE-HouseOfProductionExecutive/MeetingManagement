@@ -120,7 +120,7 @@
             console.log(data)
             for (let i = index; i < data.length && total <= 10; i++) {
                 html += "<tr>";
-                html += "<t>" + (i + 1) + "</td>";
+                html += "<td>" + (i + 1) + "</td>";
                 html += "<td>" + data[i].fullname + "</td>";
                 switch (data[i].permission_id) {
                     case 1:
