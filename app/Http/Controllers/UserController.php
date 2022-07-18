@@ -71,4 +71,23 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'User updated successfully');
     }
 
+    public function updatePassword(Request $request){
+        $user = Auth::user();
+        $request->validate([
+            'password' => ['required', function ($attribute, $value, $fail) use ($user) {
+                if (!Hash::check($value, $user->password)) {
+                    return redirect()->back()->withErrors([
+                        'password' => "Wrong Password"
+                    ]);
+                }
+            }],
+            'new_password' => 'required',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+        $user = User::find(Auth::user()->id);
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+        return redirect()->back()->with('success', 'Password updated successfully');
+    }
+
 }
