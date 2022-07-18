@@ -316,7 +316,19 @@ form {
 }
 
 .hapus_layer {
-    padding: 399px 366px 0 366px;
+    width: 1000px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.hapus_layer button{
+    cursor: pointer;
+}
+
+.hapus_layer button:focus{
+    background: none;
 }
 
 .notifikasi_hapus_box {

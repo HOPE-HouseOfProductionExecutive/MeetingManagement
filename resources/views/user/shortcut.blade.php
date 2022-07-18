@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <meta name="_token" content="{{ csrf_token() }}">
-
+<body onload="getData('', '', 0);"></body>
 
 @foreach ($tes as $item)
 @php
