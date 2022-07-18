@@ -18,22 +18,27 @@ use Illuminate\Support\Facades\Session;
 |
 */
 Route::group(['middleware'=>['auth']], function(){
+    
+    Route::group(['middleware'=>['master']], function(){
+
+        Route::get('/pagination/users', [UserController::class, 'jsonUser']);
+        Route::get('/register', [UserController::class, 'getUser']);
+        Route::post('/register/user', [UserController::class, 'register'])->name('register.user');
+        Route::delete('/delete/user', [UserController::class, 'deleteUser'])->name('delete.user');
+    });
+
+    Route::group(['middleware'=>['admin']], function(){
+        Route::get('/manage', [MeetingController::class, 'goToManage']);
+        Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
+        Route::put('/update', [MeetingController::class, 'updateMeetingData']);
+        Route::delete('/delete', [MeetingController::class, 'deleteMeetingData']);
+
+
+    });
+
     Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
-    Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
-    Route::get('/pagination', function(){
-        return view('user.pagination');
-    });
 
     Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
-    Route::get('/pagination', function(){
-        return view('user.manage');
-    });
-
-    Route::get('/manage', [MeetingController::class, 'goToManage']);
-    Route::put('/update', [MeetingController::class, 'updateMeetingData']);
-    Route::delete('/delete', [MeetingController::class, 'deleteMeetingData']);
-
-    Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
 
     Route::get('/search-data', [MeetingController::class, 'goToSearch'])->name('search');
     Route::get('/search', [MeetingController::class, 'search']);
@@ -42,20 +47,12 @@ Route::group(['middleware'=>['auth']], function(){
         return view('user.account');
     });
 
-    Route::get('/pagination/users', [UserController::class, 'jsonUser']);
-
-    Route::get('/register', [UserController::class, 'getUser']);
-    Route::post('/register/user', [UserController::class, 'register'])->name('register.user');
-    Route::delete('/delete/user', [UserController::class, 'deleteUser'])->name('delete.user');
-
     Route::get('/logout', function () {
         Session::flush();
         Session::forget('user');
         Auth::logout();
         return redirect('/login');
     });
-
-
 });
 Route::post('/login/user', [UserController::class, 'login']);
 

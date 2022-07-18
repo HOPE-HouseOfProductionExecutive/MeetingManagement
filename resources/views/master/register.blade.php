@@ -269,6 +269,11 @@
 
 </script>
 <script>
+    function onClickModalTambah() {
+        var modal = document.getElementById('modal tambah');
+        modal.style.display = "block";
+    }
+
     function onClickModalDelete(id) {
         var modalid = "modal delete " + id;
         var modal = document.getElementById(modalid);
