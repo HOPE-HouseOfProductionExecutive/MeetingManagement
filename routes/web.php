@@ -28,16 +28,14 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/pagination', function(){
         return view('user.manage');
     });
-    Route::get('/manage', function () {
-        return view('user.manage');
-    });
+
+    Route::get('/manage', [MeetingController::class, 'goToManage']);
+    Route::put('/update', [MeetingController::class, 'updateMeetingData']);
 
     Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
 
     Route::get('/search-data', [MeetingController::class, 'goToSearch'])->name('search');
-    Route::post('/tes', function(Request $request){
-        dd($request);
-    });
+    Route::get('/search', [MeetingController::class, 'search']);
 
     Route::get('/account', function () {
         return view('user.account');
@@ -57,7 +55,6 @@ Route::group(['middleware'=>['auth']], function(){
 
 
 });
-Route::get('/search', [MeetingController::class, 'search']);
 Route::post('/login/user', [UserController::class, 'login']);
 
 Route::get('/login', function () {
