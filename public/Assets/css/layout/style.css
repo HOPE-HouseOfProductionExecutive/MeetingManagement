@@ -64,6 +64,7 @@ ul, li{
     font-style: normal;
     color: #ffffff;
     padding-bottom: 2.375rem;
+    padding-left: 10px;
     margin: 0 20px;
 }
 
@@ -93,12 +94,17 @@ ul, li{
 
 .nav-left.aktip ul li{
     margin: 0;
+    padding-right: 0;
 }
+/* .nav-left.aktip ul li {
+} */
+
 .nav-left ul li{
     position: relative;
     height: 60px;
     width: 100%;
-    margin: 0 5px;
+    margin: 0 20px;
+    padding-right: 10px;
     line-height: 50px;
 }
 
@@ -136,14 +142,14 @@ ul, li{
     min-height: 26px;
 }
 .nav-left.aktip ul li a img {
-    margin-left: 11px;
+    margin-left: 9px;
     padding : 0;
 }
 
 .nav-left ul li a span {
     font-family: 'Inter';
     font-style: normal;
-    font-size: 23px;
+    font-size: 19px;
     /* line-height: 28px; */
 }
 .nav-left.aktip ul li a span {
