@@ -4,13 +4,11 @@
 <link rel="stylesheet" href="/Assets/css/user/dashboard/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/Assets/js/pagination.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-{{-- ISI DISINI --}}
 <body onload="getData(0);">
+
 <div class="part-dashboard">
 
     <div class="statistic">
@@ -31,8 +29,6 @@
             <p>6</p>
         </div>
     </div>
-
-    
     <section id="table">
         <table>
             <thead>
@@ -41,7 +37,7 @@
                 <th>Judul</th>
             </thead>
             <tbody id="content-table-body">
-                
+
             </tbody>
         </table>
     </section>
@@ -63,6 +59,7 @@
     </footer>
 </div>
 </body>
+
 @foreach ($data as $item)
 @php
     $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
@@ -134,93 +131,43 @@
     </div>
 </div>
 @endforeach
-<!-- 
-
-
-<div class="full-dashboard">
-   
-
-        <div class="table-dashboard">
-            <div class="ct1">
-                <div class="number">
-                    <h3>
-                        No
-                    </h3>
-                </div>
-                <div class="time">
-                    <h3>
-                        Waktu
-                    </h3>
-                </div>
-                <div class="title">
-                    <h3>
-                        Judul Rapat
-                    </h3>
-                </div>
-            </div>
-            @foreach ($data as $item)
-            <div class="ct2">
-                <div class="number_c">
-                    <p>{{$loop->iteration}}</p>
-                </div>
-                <div class="time_c">
-                    @php
-                        $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
-                        $time->settings(['formatFunction' => 'translatedFormat']);
-                        $time = $time->isoformat('dddd, DD MMMM YYYY');
-                    @endphp
-                    <p>{{$time}}</p>
-                </div>
-                <div class="title_c">
-                    <p>{{$item->judul}}</p>
-                </div>
-                {{-- <form action=""></form> --}}
-                <button id="{{$item->id}}" onclick="onClickModalOpen(this.id)" ><img src="/Assets/icons/eye.svg"  alt=""></button>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div> -->
-
-    <!-- Compiled and minified CSS -->
- 
 <script>
 
     function getData(index){
         $.get('/pagination/ajax', function (data) {
             // console.log(data);
-    
+
             let tableBody = document.getElementById("content-table-body");
             let total = 1;
             let html= "";
             for(let i = index; i < data.length && total <= 10 ; i++){
                 html += "<tr>";
-                
+
                 html += "<td>" + (i+1) + "</td>";
                 html += "<td>" + data[i].waktu_rapat +"</td>";
                 html += "<td>" + data[i].judul + "</td>";
                 html += "<td class='mata'><button id='" + data[i].id + "' onclick='onClickModalOpen(this.id)'><a href='#'><img  src='/Assets/icons/eye.svg'/></a></td>";
-    
+
                 total += 1;
                 html += "</tr>";
             }
-    
+
             tableBody.innerHTML = html;
-    
-    
+
+
         });
     }
 
 
     function handleNumberClick (clickedLink, leftArrow, rightArrow)
     {
-        
+
         console.log(clickedLink);
         clickedLink.parentElement.classList = "aktif";
-        let clickedLinkPageNumber = parseInt(clickedLink.innerText); 
+        let clickedLinkPageNumber = parseInt(clickedLink.innerText);
         // console.log((clickedLinkPageNumber*10) - 10);
         getData(((clickedLinkPageNumber * 10) - 10));
-        
+
 
         switch (clickedLinkPageNumber) {
             case 1:
@@ -251,8 +198,8 @@
     let previousPage = document.querySelectorAll('li')[aktifPageNumber-1];
     previousPage.classList = "aktif";
     getData(((aktifPageNumber-1) * 10) - 10);
- 
-   
+
+
     if (aktifPageNumber === 10) {
         enableRightArrow(rightArrow);
     }
@@ -268,7 +215,7 @@ function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
     nextPage.classList = "aktif";
 
     getData(((aktifPageNumber+1) * 10) - 10);
-    
+
 
     if (aktifPageNumber === 1) {
         enableLeftArrow(leftArrow);
@@ -302,15 +249,15 @@ function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
     let leftArrow;
     let rightArrow;
     let url = '';
-    
+
     pageLinks.forEach((element) => {
         element.addEventListener("click", function() {
             leftArrow = document.querySelector('.arrow-left');
             rightArrow = document.querySelector('.arrow-right');
             aktifLink = document.querySelector('.aktif');
-            
+
             aktifPageNumber = parseInt(aktifLink.innerText);
-            
+
             if ((this.innerText === 'chevron_left' && aktifPageNumber === 1) || (this.innerText === 'chevron_right' && aktifPageNumber === 10)) {
             return;
             }
@@ -327,9 +274,9 @@ function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
             }
 
         });
-        
+
     });
-    
+
 </script>
 </html>
 

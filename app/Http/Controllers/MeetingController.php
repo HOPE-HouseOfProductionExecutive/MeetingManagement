@@ -6,6 +6,7 @@ use App\Models\Meetings;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 class MeetingController extends Controller
 {
@@ -16,7 +17,7 @@ class MeetingController extends Controller
 
     public function paginate(){
         $data = Meetings::all();
-        return response()->json($data);;
+        return response()->json($data);
     }
 
     public function goToManage(){
@@ -75,6 +76,39 @@ class MeetingController extends Controller
         $data = Meetings::find($request->id);
         $data->delete();
         return redirect()->back()->with('success', 'Meeting deleted successfully');
+    }
+
+    public function goToSearch(){
+        $data = DB::table('meetings')->distinct()->get();
+        $tes = Meetings::all();
+        return view('user.shortcut', compact('data', 'tes'));
+    }
+
+    public function search(Request $request) {
+        if($request->ajax()) {
+            $output = "";
+            $data = null;
+            if($request->search != "" && $request->search1 == ""){
+                $data = Meetings::where([
+                    'waktu_rapat' => $request->search
+                ])->get();
+            }
+            else if($request->search == "" && $request->search1 != ""){
+                $data = Meetings::where([
+                    'keterangan' => $request->search1
+                ])->get();
+            }
+            else{
+                $data = Meetings::where([
+                    'waktu_rapat' => $request->search,
+                    'keterangan' => $request->search1
+                ])->get();
+            }
+            if($data) {
+                return response()->json($data);
+            }
+
+        }
     }
 
 }

@@ -186,6 +186,8 @@ ul, li{
     position: relative;
     background: linear-gradient(0deg, rgba(6, 118, 181, 0.23) 0%, rgba(139, 191, 220, 0.161349) 44.93%, rgba(139, 191, 220, 0.063146) 75.28%, rgba(139, 191, 220, 0) 91.55%);
     z-index: 0;
-    height: calc(100vh - var(--nav-top-height));
+    /* height: calc(100vh - var(--nav-top-height)); */
+    min-height: 100vh;
+    height: fit-content;
 }
 
