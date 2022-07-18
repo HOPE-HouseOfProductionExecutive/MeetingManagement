@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('title', 'Dashboard')
 @section('content')
-
 <link rel="stylesheet" href="/Assets/css/user/account/style.css">
 
 <div class="akun_layer">
@@ -9,13 +8,9 @@
         <h3>Akun</h3>
     </div>
     <div class="akun_box">
-        <div class="box_upper">
-            <p>Rincian</p>
-            <p class="pr">Pemulihan Kata Sandi</p>
-        </div>
-
         <div class="separate">
             <div class="rincian">
+                <h2>Rincian</h2>
                 <div class="rincian_nama">
                     <p>Nama</p>
                     <div class="nama_box">
@@ -35,9 +30,8 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="pemulihan">
+                <h2>Pemulihan Kata Sandi</h2>
                 <form action="/update/password" method="POST">
                     @csrf
                     @method('PUT')
