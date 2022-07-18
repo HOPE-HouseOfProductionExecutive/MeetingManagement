@@ -10,23 +10,22 @@
 <body onload="getData(0);">
 
 <div class="part-dashboard">
-
     <div class="statistic">
         <div class="c1">
             <h3>Total Rapat</h3>
-            <p>143</p>
+            <p>{{$total_rapat}}</p>
         </div>
         <div class="c1">
             <h3>Rapat Selesai</h3>
-            <p>11</p>
+            <p>{{$rapat_selesai}}</p>
         </div>
         <div class="c1">
             <h3>Total Rapat Terdekat</h3>
-            <p>12</p>
+            <p>{{$rapat_terdekat}}</p>
         </div>
         <div class="c2">
             <h3>Rapat Yang Berjalan</h3>
-            <p>6</p>
+            <p>{{$rapat_berjalan}}</p>
         </div>
     </div>
     <section id="table">

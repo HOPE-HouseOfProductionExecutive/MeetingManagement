@@ -12,7 +12,20 @@ class MeetingController extends Controller
 {
     public function goToDashboard(){
         $data = Meetings::all();
-        return view('user.dashboard', compact('data'));
+        $total_rapat = DB::select("SELECT count(id) AS 'Total_Rapat'
+        FROM meetings");
+        $rapat_selesai = DB::select("SELECT count(keterangan) as Total FROM meetings
+        WHERE keterangan LIKE 'Selesai'");
+        $rapat_berjalan = DB::select("SELECT count(keterangan) AS Total FROM meetings
+        WHERE keterangan LIKE 'Belum Selesai'");
+        $rapat_terdekat = DB::select("SELECT count(id) as total FROM meetings
+        WHERE CURRENT_DATE-waktu_selesai < 7");
+
+        $total_rapat = $total_rapat[0]->Total_Rapat;
+        $rapat_selesai = $rapat_selesai[0]->Total;
+        $rapat_berjalan = $rapat_berjalan[0]->Total;
+        $rapat_terdekat = $rapat_terdekat[0]->total;
+        return view('user.dashboard', compact('data', 'total_rapat', 'rapat_selesai', 'rapat_berjalan', 'rapat_terdekat'));
     }
 
     public function paginate(){
