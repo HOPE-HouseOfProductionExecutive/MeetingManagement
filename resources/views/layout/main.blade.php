@@ -47,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="/shortcut">
+                    <a href="/search-data">
                         <img src="/Assets/icons/search-lg.svg" alt="">
                         <img class="hover" src="/Assets/icons/search-lg-02.svg" alt="">
                         <span class="links">Pencarian</span>

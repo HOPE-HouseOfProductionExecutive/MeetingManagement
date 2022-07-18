@@ -19,15 +19,24 @@ use Illuminate\Support\Facades\Session;
 */
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
+    Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
+    Route::get('/pagination', function(){
+        return view('user.pagination');
+    });
 
+    Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
+    Route::get('/pagination', function(){
+        return view('user.manage');
+    });
     Route::get('/manage', function () {
         return view('user.manage');
     });
 
     Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
 
-    Route::get('/shortcut', function () {
-        return view('user.shortcut');
+    Route::get('/search-data', [MeetingController::class, 'goToSearch'])->name('search');
+    Route::post('/tes', function(Request $request){
+        dd($request);
     });
 
     Route::get('/account', function () {
@@ -45,8 +54,10 @@ Route::group(['middleware'=>['auth']], function(){
         Auth::logout();
         return redirect('/login');
     });
-});
 
+
+});
+Route::get('/search', [MeetingController::class, 'search']);
 Route::post('/login/user', [UserController::class, 'login']);
 
 Route::get('/login', function () {
@@ -54,16 +65,3 @@ Route::get('/login', function () {
 })->name('login');
 
 
-Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
-Route::get('/pagination', function(){
-    return view('user.pagination');
-});
-
-Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
-Route::get('/pagination', function(){
-    return view('user.manage');
-});
-
-Route::post('/tes', function(Request $request){
-    dd($request);
-});
