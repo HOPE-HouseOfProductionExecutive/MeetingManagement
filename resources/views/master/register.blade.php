@@ -84,7 +84,7 @@
             <thead>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Role</th>
+                <th>Jabatan</th>
                 <th>Email</th>
             </thead>
             <tbody id="content-table-body">

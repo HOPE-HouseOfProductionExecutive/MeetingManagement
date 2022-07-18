@@ -1,5 +1,5 @@
 .shortcut_layer {
-    padding: 20px 38px 41px 39px;
+    padding: 20px 38px 20px 39px;
 }
 
 .shortcut_upper {
@@ -13,7 +13,7 @@
     font-size: 24px;
     line-height: 44px;
     letter-spacing: 0.125em;
-
+    margin: 0;
     color: #000000;
 }
 
@@ -68,6 +68,14 @@
 
 .shortcut_waktu {
     padding-top: 20px;
+}
+
+.shortcut_waktu p{
+    padding-bottom: 5px;
+}
+
+.shortcut_status p {
+    padding-bottom: 5px;
 }
 
 .shortcut_hasil_layer {
@@ -251,7 +259,7 @@ label span {
 
 
 .part-dashboard {
-    padding: 20px 38px 41px 39px;
+    padding: 20px 38px 75px 39px;
     display: flex;
     flex-direction: column;
 }
