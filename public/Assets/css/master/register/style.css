@@ -1,75 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-.manage_layer td{
+
+.pilihan_box button{
+    cursor: pointer;
+}
+.pilihan_box button:focus{
+    background: none;
+}
+
+.manage_layer td {
     padding: 10px 15px;
-  }
-  
-  .manage_layer th{
+}
+
+.manage_layer th {
     padding: 15px 15px;
-  }
-  
-  thead tr{
+}
+
+thead tr {
     border-bottom: 2px solid #ECF0F3;
-  }
-  
-  tbody tr{
+}
+
+tbody tr {
     box-sizing: border-box;
     border-bottom: 1px solid #ECF0F3;
-  }
-  
-  section{
+}
+
+section {
     background: #FFFFFF;
     border-radius: 14px;
-  }
-  
-  .pagination li.aktif {
-    background-color: #3FA1D7;
-  }
+}
 
-footer{
+.pagination li.aktif {
+    background-color: #3FA1D7;
+}
+
+footer {
     position: absolute;
     bottom: 17px;
     left: 33%;
 }
-button{
+
+button {
     border-style: none;
-    background:none;
-  }
+    background: none;
+}
 
-.trash{
+.trash {
     width: 10px;
     height: 40px;
     cursor: pointer;
-  }
-.edit{
+}
+
+.edit {
     width: 10px;
     height: 40px;
     cursor: pointer;
-  }
+}
 
-.manage_layer{
+.manage_layer {
     box-sizing: border-box;
     padding: 20px 38px 5px 39px;
 }
 
-.manage_upper{
+.manage_upper {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.manage_upper h3{
+.manage_upper h3 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 44px;
     letter-spacing: 0.125em;
-    margin:0;
+    margin: 0;
     color: #000000;
 }
 
-.td_box button{
+.td_box button {
     padding: 8px 18px 9px 17px;
     font-family: 'Inter';
     font-style: normal;
@@ -85,13 +95,13 @@ button{
     border-radius: 8px;
 }
 
-.tabel_manage{
+.tabel_manage {
     height: 826px;
     background: #FFFFFF;
     border-radius: 14px;
 }
 
-.head_tabel{
+.head_tabel {
     display: flex;
     height: 34px;
     justify-content: space-between;
@@ -108,32 +118,32 @@ button{
     line-height: 18px;
 }
 
-.nomor{
+.nomor {
     width: 40px;
     padding-left: 30px;
 }
 
-.waktu{
+.waktu {
     width: 140px;
 }
 
-.judul{
+.judul {
     width: 180px;
 }
 
-.progres{
+.progres {
     width: 140px;
 }
 
-.status{
+.status {
     width: 100px;
 }
 
-.kosong{
+.kosong {
     width: 180px;
 }
 
-.content_tabel{
+.content_tabel {
     display: flex;
     justify-content: space-between;
     padding-top: 8px;
@@ -141,33 +151,33 @@ button{
     border-bottom: 1px solid black;
 }
 
-.c_nomor{
+.c_nomor {
     width: 40px;
     padding-left: 30px;
 }
 
-.c_waktu{
+.c_waktu {
     width: 140px;
 }
 
-.c_judul{
+.c_judul {
     width: 180px;
 }
 
-.c_progres{
+.c_progres {
     width: 140px;
 }
 
-.c_status{
+.c_status {
     width: 100px;
 }
 
-.pilihan{
+.pilihan {
     width: 180px;
     display: flex;
 }
 
-.ubah_box{
+.ubah_box {
     width: 63px;
     height: 21px;
     padding-right: 33px;
@@ -175,29 +185,29 @@ button{
     justify-content: space-between;
 }
 
-.hapus_box{
+.hapus_box {
     width: 69px;
     height: 21px;
     display: flex;
     justify-content: space-between;
 }
 
-.tambah_data_layer{
+.tambah_data_layer {
     width: 90%;
     position: absolute;
     transform: translate(-50%, -50%);
-    top:50%;
+    top: 50%;
     left: 50%;
 }
 
-.tambah_data_box{
+.tambah_data_box {
     display: flex;
     flex-direction: column;
     background: #359DD7;
     border-radius: 11px;
 }
 
-.tambah_data_box h2{
+.tambah_data_box h2 {
     padding: 15px 0 15px 28px;
     font-family: 'Inter';
     font-style: normal;
@@ -211,11 +221,11 @@ button{
     color: #FFFFFF;
 }
 
-.input_box{
+.input_box {
     padding: 17px 28px 0px 28px;
 }
 
-.input_box label{
+.input_box label {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -225,26 +235,26 @@ button{
     color: #FFFFFF;
 }
 
-.input_box input{
+.input_box input {
     padding-left: 10px;
     height: 67px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border:none;
+    border: none;
     border-radius: 4px;
     font-size: 14px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
 }
 
-.waktu_form{
+.waktu_form {
     padding: 17px 800px 0px 28px;
 }
 
-.waktu_form label{
+.waktu_form label {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -254,21 +264,21 @@ form{
     color: #FFFFFF;
 }
 
-.waktu_form input{
+.waktu_form input {
     height: 25px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border:none;
+    border: none;
     border-radius: 4px;
 }
 
-.tombol_tambah{
+.tombol_tambah {
     display: flex;
     justify-content: flex-end;
     padding: 58px 28px 30px 0;
 }
 
-.tombol_tambah input{
+.tombol_tambah input {
     cursor: pointer;
     padding: 8px 18px;
     background: #8FE29C;
@@ -287,15 +297,15 @@ form{
     color: #000000;
 }
 
-.perubahan_data_layer{
+.perubahan_data_layer {
     padding: 0 78px 0 78px;
 }
 
-.perubahan_status_box{
+.perubahan_status_box {
     padding: 17px 800px 0px 28px;
 }
 
-.perubahan_status_box label{
+.perubahan_status_box label {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -305,21 +315,21 @@ form{
     color: #FFFFFF;
 }
 
-.perubahan_status_box select{
+.perubahan_status_box select {
     height: 25px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border:none;
+    border: none;
     border-radius: 4px;
 }
 
-.tombol_selesai{
+.tombol_selesai {
     display: flex;
     justify-content: flex-end;
     padding: 58px 28px 30px 0;
 }
 
-.tombol_selesai input{
+.tombol_selesai input {
     cursor: pointer;
     padding: 9px 40px;
     background: #8FE29C;
@@ -338,11 +348,11 @@ form{
     color: #000000;
 }
 
-.hapus_layer{
+.hapus_layer {
     padding: 399px 366px 0 366px;
 }
 
-.notifikasi_hapus_box{
+.notifikasi_hapus_box {
     width: 100%;
     height: 205px;
     display: flex;
@@ -354,12 +364,12 @@ form{
     border: none;
 }
 
-.notifikasi_hapus_box img{
+.notifikasi_hapus_box img {
     width: 87px;
     height: 87px;
 }
 
-.hapus_layer p{
+.hapus_layer p {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -371,13 +381,13 @@ form{
     color: #000000;
 }
 
-.pilihan_hapus{
+.pilihan_hapus {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.hapus_layer h2{
+.hapus_layer h2 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -388,13 +398,13 @@ form{
     letter-spacing: 0.11em;
 }
 
-.pilihan_box{
+.pilihan_box {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.opacity{
+.opacity {
     display: none;
     position: absolute;
     width: 100%;
