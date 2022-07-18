@@ -55,10 +55,10 @@ class MeetingController extends Controller
             'tindak_lanjut' => 'required',
             'penanggung_jawab' => 'required',
             'progres_rapat' => 'required',
-            'data_pendukung' => 'required',
             'waktu_rapat' => 'required',
             'batas_waktu' => 'required',
         ]);
+        dd($request);
         $data = Meetings::find($request->id);
         $data->judul = $request->judul_rapat;
         $data->tindak_lanjut = $request->tindak_lanjut;
