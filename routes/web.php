@@ -53,7 +53,7 @@ Route::group(['middleware'=>['auth']], function(){
     });
 });
 Route::post('/login/user', [UserController::class, 'login']);
-
+// Route::
 Route::get('/login', function () {
     return view('login');
 })->name('login');
