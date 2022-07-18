@@ -3,6 +3,14 @@
 
 .akun_layer{
     padding: 20px 38px 41px 39px;
+    height: 85vh;
+}
+
+.akun_box{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
 }
 
 .akun_upper{
@@ -19,63 +27,110 @@
     letter-spacing: 0.125em;
 }
 
-.akun_detail{
-    width: 100%;
-    height: 80vh;
-    background: white;
-    border-radius: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.akun_kiri{
-    width: 20%;
-    height: 60%;
-    padding: 10px 10px;
-    border: 1px solid #000000;
-}
-
-.bod{
-    padding-top: 30px;
-}
-
-.akun_kanan{
-    width: 35%;
-    height: 60%;
-    background: #84BCDC;
-    border: 1px solid #000000;
-    border-radius: 0px 5px 5px 0px;
-    padding: 10px 10px;
-}
-
-.password{
-    height: 100%;
-}
-
-.password p{
-    padding-top: 30px;
-}
-
-.password form{
-    height: 80%;
+.akun_box{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 
-.password input{
-    padding-left: 10px;
-    height: 45px;
-    background: #F6F6F7;
+.box_upper{
+    display: flex;
+    padding-left: 39px;
+}
+
+.box_upper p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 36px;
+
+    color: #000000;
+}
+
+.pr{
+    padding-left: 550px;
+}
+
+.rincian{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 39px;
+    padding-right: 100px;
+    padding-top: 20px;
+    width: 40%;
+    height: 150px;
+}
+
+.rincian_nama{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rincian_nama p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.nama_box{
+    width: 268px;
+    height: 30px;
+    background: #F6F6F6;
     border-radius: 5px;
-    border: none;
+    padding-left: 10px;
 }
 
-.konfirmasi input{
-    width: 100%;
-    background: #8FE29C;
+.separate{
+    display: flex;
+}
+
+.nb{
+    padding-top: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.pemulihan{
+    padding-top: 20px;
+}
+
+form{
+    height: 258px;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+}
+
+.pemulihan input{
+    padding-left: 15px;
+    width: 150%;
+    height: 48px;
+}
+
+.konfirm button{
+    width: 186.79px;
+    height: 46px;
+    
     border-radius: 8px;
+    background: #5FADD9;
     border: none;
-    cursor: pointer;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.35em;
+
+    color: #FFFFFF;
 }
