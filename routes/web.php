@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -56,4 +57,7 @@ Route::get('/login', function () {
 Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
 Route::get('/pagination', function(){
     return view('user.pagination');
+});
+Route::post('/tes', function(Request $request){
+    dd($request);
 });

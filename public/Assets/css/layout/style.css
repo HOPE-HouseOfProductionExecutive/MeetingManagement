@@ -18,12 +18,12 @@ ul, li{
 
 
 
-.checkbox:checked ~ .main{
+.checkboxx:checked ~ .main{
     grid-template-columns: var(--aside-width) 1fr;
 
 }
 
-.checkbox:checked ~ .main .links{
+.checkboxx:checked ~ .main .links{
     opacity: 1;
     pointer-events: auto;
 }

@@ -1,12 +1,12 @@
-.shortcut_layer{
+.shortcut_layer {
     padding: 20px 38px 41px 39px;
 }
 
-.shortcut_upper{
+.shortcut_upper {
     width: 100%;
 }
 
-.shortcut_upper h3{
+.shortcut_upper h3 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -17,41 +17,38 @@
     color: #000000;
 }
 
-.shortcut_box{
+.shortcut_box {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.shortcut_waktu input{
+.shortcut_status {
     width: 100%;
-    height: 27px;
-    background: #359DD7;
-    border-radius: 3px;
-    border: none;
-}
-
-.shortcut_status{
-    width: 100%;
-    display: flex;
     flex-direction: column;
     padding-top: 15px;
 }
 
-.shortcut_status select{
-    width: 100%;
+.shortcut_status select {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 0 10px;
     height: 27px;
-    background: #359DD7;
+    background: var(--aside-color);
     border-radius: 3px;
     border: none;
 }
 
-.shortcut_mencari{
+.shortcut_status option {
+    height: 100px !important;
+}
+
+.shortcut_mencari {
     width: 100%;
     padding-top: 30px;
 }
 
-.shortcut_mencari h3{
+.shortcut_mencari h3 {
     width: fit-content;
     padding: 10px 40px;
     font-family: 'Inter';
@@ -67,17 +64,17 @@
     border-radius: 4px;
 }
 
-.shortcut_hasil_layer{
+.shortcut_hasil_layer {
     padding: 20px 38px 41px 39px;
 }
 
-.shortcut_judul{
+.shortcut_judul {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.shortcut_judul select{
+.shortcut_judul select {
     width: 100%;
     height: 27px;
     background: #359DD7;
@@ -85,7 +82,7 @@
     border: none;
 }
 
-.shortcut_layer p{
+.shortcut_layer p {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -95,12 +92,143 @@
     color: #000000;
 }
 
-.shortcut_hasil_layer{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
+.shortcut_hasil_layer {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
 
-        color: #000000;
+    color: #000000;
+}
+
+
+details {
+	position: relative;
+	width: 300px;
+	margin-right: 1rem;
+}
+
+details[open] {
+	z-index: 1;
+}
+
+summary {
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #74cbfa;
+	list-style: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+details[open] summary:before {
+	content: '';
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+summary:after {
+	content: '';
+	display: inline-block;
+	float: right;
+	width: .5rem;
+	height: .5rem;
+	border-bottom: 1px solid currentColor;
+	border-left: 1px solid currentColor;
+	border-bottom-left-radius: 2px;
+	transform: rotate(45deg) translate(50%, 0%);
+	transform-origin: center center;
+	transition: transform ease-in-out 100ms
+}
+
+summary:focus {
+	outline: none;
+}
+
+details[open] summary:after {
+	transform: rotate(-45deg) translate(0%, 0%);
+}
+
+.custom-select ul {
+	width: 100%;
+	background: #74cbfa;
+	position: absolute;
+	top: calc(100% + .5rem);
+	left: 0;
+	padding: 1rem;
+	margin: 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.custom-select li {
+	margin: 0;
+	padding: 1rem 0;
+	border-bottom: 1px solid #fff;
+}
+
+.custom-select li:first-child {
+	padding-top: 0;
+}
+
+.custom-select li:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+
+summary.radios {
+	counter-reset: radios;
+}
+
+summary.radios:before {
+	content: var(--selection);
+}
+
+input[type=radio] {
+	counter-increment: radios;
+	appearance: none;
+	display: none;
+}
+
+input[type=radio]:checked {
+	display: inline;
+	--display: block;
+}
+
+input[type=radio]:after {
+	content: attr(title);
+	display: inline;
+	font-size: 1rem;
+}
+
+ul.list {
+	counter-reset: labels;
+}
+
+label {
+	width: 100%;
+	display: flex;
+	cursor: pointer;
+	justify-content: space-between;
+}
+
+label span {
+	--display: none;
+	display: var(--display);
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid #727272;
+	border-radius: 3px;
 }
