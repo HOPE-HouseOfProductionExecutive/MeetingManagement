@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Session;
 |
 */
 Route::group(['middleware'=>['auth']], function(){
-
     Route::group(['middleware'=>['master']], function(){
         Route::get('/pagination/users', [UserController::class, 'jsonUser']);
         Route::get('/register', [UserController::class, 'getUser']);
@@ -45,6 +44,10 @@ Route::group(['middleware'=>['auth']], function(){
     });
     Route::put('/update/password', [UserController::class, 'updatePassword']);
 
+    Route::get('/userguide', function () {
+        return view('user.userguide');
+    });
+
     Route::get('/logout', function () {
         Session::flush();
         Session::forget('user');
@@ -53,12 +56,8 @@ Route::group(['middleware'=>['auth']], function(){
     });
 });
 Route::post('/login/user', [UserController::class, 'login']);
-// Route::
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-
-Route::get('/userguide', function () {
-    return view('user.userguide');
-});

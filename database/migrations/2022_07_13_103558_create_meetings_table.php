@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tindak_lanjut', 255);
             $table->string('SKPD', 255);
             $table->string('progress', 255);
-            $table->string('data_pendukung', 255);
+            $table->string('data_pendukung', 255)->nullable();
             $table->string('keterangan');
             $table->date('waktu_rapat');
             $table->date('waktu_selesai');
