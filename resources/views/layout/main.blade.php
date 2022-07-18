@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <input type="checkbox" class="checkbox" id="click" hidden>
+    <input type="checkbox" class="checkboxx" id="click" hidden>
     <div class="main">
         <div class="nav-left aktip">
             <div class="sidebar-heading">
