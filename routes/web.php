@@ -59,3 +59,6 @@ Route::get('/login', function () {
 })->name('login');
 
 
+Route::get('/userguide', function () {
+    return view('user.userguide');
+});
