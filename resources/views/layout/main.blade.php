@@ -37,7 +37,7 @@
                     </a>
                     {{-- <span class="tooltip">Beranda</span> --}}
                 </li>
-                @if (Auth::user()->permission->name == 'Admin')
+                @if (Auth::user()->permission->name == 'Admin' || Auth::user()->permission->name == 'Master')
                 <li>
                     <a href="/manage">
                         <img src="/Assets/icons/file-02.svg" alt="">
