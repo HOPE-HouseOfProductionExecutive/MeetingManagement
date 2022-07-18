@@ -51,14 +51,13 @@ class MeetingController extends Controller
 
     public function updateMeetingData(Request $request){
         $request->validate([
-            'judul' => 'required',
+            'judul_rapat' => 'required',
             'tindak_lanjut' => 'required',
             'penanggung_jawab' => 'required',
             'progres_rapat' => 'required',
             'waktu_rapat' => 'required',
             'batas_waktu' => 'required',
         ]);
-        dd($request);
         $data = Meetings::find($request->id);
         $data->judul = $request->judul_rapat;
         $data->tindak_lanjut = $request->tindak_lanjut;
@@ -88,7 +87,10 @@ class MeetingController extends Controller
         if($request->ajax()) {
             $output = "";
             $data = null;
-            if($request->search != "" && $request->search1 == ""){
+            if($request->search == "" && $request->search1 == ""){
+                $data = Meetings::all();
+            }
+            else if($request->search != "" && $request->search1 == ""){
                 $data = Meetings::where([
                     'waktu_rapat' => $request->search
                 ])->get();

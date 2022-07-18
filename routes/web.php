@@ -31,6 +31,7 @@ Route::group(['middleware'=>['auth']], function(){
 
     Route::get('/manage', [MeetingController::class, 'goToManage']);
     Route::put('/update', [MeetingController::class, 'updateMeetingData']);
+    Route::delete('/delete', [MeetingController::class, 'deleteMeetingData']);
 
     Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
 
