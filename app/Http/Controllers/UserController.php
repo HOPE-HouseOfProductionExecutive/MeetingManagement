@@ -6,26 +6,39 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
     public function login(Request $req){
-        $req->validate([
-            'email'=>'required',
-            'password'=>'required',
-        ]);
+        if($req->input('action') == "login"){
+            $req->validate([
+                'email'=>'required',
+                'password'=>'required',
+            ]);
 
-        $credential = $req->only('email', 'password');
-        $user = User::where(['email'=>$req->email])->first();
+            $credential = $req->only('email', 'password');
+            $user = User::where(['email'=>$req->email])->first();
 
-        if(Auth::attempt($credential)){
-            $req->session()->put('user', $user);
-            Auth::login($user);
-            return redirect('/');
+            if(Auth::attempt($credential)){
+                $req->session()->put('user', $user);
+                Auth::login($user);
+                return redirect('/');
+            }
+            return redirect()->back()->withErrors([
+                'email' => "Wrong Email or Password"
+            ]);
         }
-        return redirect()->back()->withErrors([
-            'email' => "Wrong Email or Password"
-        ]);
+        else{
+            $user = User::where(['email'=>$req->email])->first();
+            if($user == null){
+                return redirect()->back()->with(['error' => 'Email tidak ditemukan']);
+            }
+            $user->password = Hash::make('rapat123');
+            $this->sendEmail($user);
+            $user->save();
+            return redirect()->back()->with(['success' => 'Password anda telah dikirim melalui email yang terdaftar, jika tidak ada di inbox harap check spam!']);
+        }
     }
     public function getUser(){
         $users = User::all();
@@ -88,6 +101,18 @@ class UserController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
         return redirect()->back()->with('success', 'Password updated successfully');
+    }
+
+
+    public function sendEmail($user){
+        Mail::send(
+            'email.forgot',
+            ['user' => $user],
+            function ($message) use ($user) {
+                $message->to($user->email);
+                $message->subject('Password Baru - Manajemen Akun');
+            }
+        );
     }
 
 }

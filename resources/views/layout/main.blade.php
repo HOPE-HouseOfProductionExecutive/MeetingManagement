@@ -10,13 +10,7 @@
 
     {{-- JQUERY Ajax --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    {{-- <script src=""></script> --}}
     <title>@yield('title')</title>
-    <style>
-        /* .main{
-            grid-template-columns: var(--aside-close) 1fr;
-        } */
-    </style>
 </head>
 <body>
     <input type="checkbox" class="checkboxx" id="click" hidden>
