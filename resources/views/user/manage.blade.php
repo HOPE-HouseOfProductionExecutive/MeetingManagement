@@ -100,7 +100,7 @@
     <div class="tambah_data_layer">
         <div class="tambah_data_box">
             <h2>
-                Penambahan Data Rapat
+                Perubahan Data Rapat
             </h2>
             <hr>
             <form action="/update" method="POST">
