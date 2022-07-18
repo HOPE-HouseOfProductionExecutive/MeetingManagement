@@ -37,6 +37,7 @@
                     </a>
                     {{-- <span class="tooltip">Beranda</span> --}}
                 </li>
+                @if (Auth::user()->permission->name == 'Admin')
                 <li>
                     <a href="/manage">
                         <img src="/Assets/icons/file-02.svg" alt="">
@@ -45,7 +46,7 @@
                     </a>
                     {{-- <span class="tooltip">Pengelolaan</span> --}}
                 </li>
-
+                @endif
                 <li>
                     <a href="/search-data">
                         <img src="/Assets/icons/search-lg.svg" alt="">
@@ -54,6 +55,7 @@
                     </a>
                     {{-- <span class="tooltip">Pencarian</span> --}}
                 </li>
+                @if (Auth::user()->permission->name == 'Master')
                 <li>
                     <a href="/register">
                         <img src="/Assets/icons/users-plus.svg" alt="">
@@ -62,6 +64,7 @@
                     </a>
                     {{-- <span class="tooltip">Akun</span> --}}
                 </li>
+                @endif
                 <li>
                     <a href="/account">
                         <img src="/Assets/icons/user-01.svg" alt="">
