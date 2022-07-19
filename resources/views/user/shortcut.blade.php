@@ -167,17 +167,8 @@
     <footer class="center-align">
         <ul class="pagination">
             <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="aktif"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!">6</a></li>
-            <li class="waves-effect"><a href="#!">7</a></li>
-            <li class="waves-effect"><a href="#!">8</a></li>
-            <li class="waves-effect"><a href="#!">9</a></li>
-            <li class="waves-effect"><a href="#!">10</a></li>
-            <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li class="aktif">1</li>
+            <li class="disabled arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </footer>
 </div>
@@ -193,15 +184,48 @@
             var input = document.getElementById('waktu');
         } else {
             var input = document.getElementById('status');
-            console.log(input);
         }
 
         input.value = testing.value;
     }
-
 </script>
 <script>
+    function successAjax(datta){
+        DATA_LEN = datta.length;
+        searchData = datta;
+        // console.log(datta.length);
+        idx = 1;
+        pageMax = Math.ceil(DATA_LEN/10);
+    }
+    function paginationAjax(index){
+        let tableBody = document.getElementById("content-table-body");
+        let total = 1;
+        let html = "";
+        for (let i = index; i < searchData.length && total <= 10; i++) {
+            html += "<tr>";
+
+            html += "<td>" + (i + 1) + "</td>";
+            html += "<td>" + searchData[i].waktu_rapat + "</td>";
+            html += "<td>" + searchData[i].judul + "</td>";
+            html += "<td class='mata'><button id='" + searchData[i].id +
+                "' onclick='onClickModalOpen(this.id)'><a href='#'><img  src='/Assets/icons/eye.svg'/></a></td>";
+
+            total += 1;
+            html += "</tr>";
+        }
+        tableBody.innerHTML = html;
+    }
+     function ajaxError(){
+        let aktifLink = document.querySelector('.aktif');
+        index = 1;
+        aktifLink.innerText = idx;
+    }
+
     function getData(searches1, searches2, index) {
+        let leftArrow = document.querySelector('.arrow-left');
+        let rightArrow = document.querySelector('.arrow-right');
+        let aktifLink = document.querySelector('.aktif');
+        let temp;
         $.ajax({
             type: 'get',
             url: '/search',
@@ -210,7 +234,7 @@
                 'search1' : searches2
             },
             success: function (data) {
-                console.log(data);
+                successAjax(data);
                 let tableBody = document.getElementById("content-table-body");
                 let total = 1;
                 let html = "";
@@ -226,77 +250,43 @@
                     total += 1;
                     html += "</tr>";
                 }
-
+                index = 1;
+                aktifLink.innerText = idx;
                 tableBody.innerHTML = html;
-            }
-        });
-    }
-
-    function handleNumberClick(clickedLink, leftArrow, rightArrow) {
-
-        let value = $('#waktu').val();
-        let value2 = $('#status').val();
-        clickedLink.parentElement.classList = "aktif";
-        let clickedLinkPageNumber = parseInt(clickedLink.innerText);
-        // console.log((clickedLinkPageNumber*10) - 10);
-        getData(value, value2, ((clickedLinkPageNumber * 10) - 10));
-
-
-        switch (clickedLinkPageNumber) {
-            case 1:
                 disableLeftArrow(leftArrow);
-                if (rightArrow.className.indexOf("disabled") !== -1) {
-                    enableRightArrow(rightArrow);
+                enableRightArrow(rightArrow);
+                if(data.length==0){
+                    disableRightArrow(rightArrow);
                 }
-                break;
-            case 10:
+            },
+            fail: function () {
                 disableRightArrow(rightArrow);
-                if (leftArrow.className.indexOf('disabled') !== -1) {
-                    enableLeftArrow(leftArrow);
-                }
-                break;
-            default:
-                if (leftArrow.className.indexOf('disabled') !== -1) {
-                    enableLeftArrow(leftArrow);
-                }
-                if (rightArrow.className.indexOf('disabled') !== -1) {
-                    enableRightArrow(rightArrow);
-                }
-                break;
-        }
+            }
+
+        });
+        // if(index === searchData.length){
+        // }else{
+        // }
     }
 
     function handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow) {
-        let value = $('#waktu').val();
-        let value2 = $('#status').val();
         let previousPage = document.querySelectorAll('li')[aktifPageNumber - 1];
-        previousPage.classList = "aktif";
-        getData(value, value2, ((aktifPageNumber - 1) * 10) - 10);
-
-
-        if (aktifPageNumber === 10) {
+        paginationAjax((((aktifPageNumber) * 10) - 10));
+        if (aktifPageNumber != pageMax) {
             enableRightArrow(rightArrow);
         }
-
-        if (aktifPageNumber - 1 === 1) {
+        if (aktifPageNumber === 1) {
             disableLeftArrow(leftArrow);
         }
     }
 
     function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
-        //move to next page
         let nextPage = document.querySelectorAll('li')[aktifPageNumber + 1];
-        nextPage.classList = "aktif";
-        let value = $('#waktu').val();
-        let value2 = $('#status').val();
-        getData(value1, value2, ((aktifPageNumber + 1) * 10) - 10);
-
-
+        paginationAjax((((aktifPageNumber +1) * 10) - 10));
         if (aktifPageNumber === 1) {
             enableLeftArrow(leftArrow);
         }
-
-        if (aktifPageNumber + 1 === 10) {
+        if (aktifPageNumber + 1 === pageMax) {
             disableRightArrow(rightArrow);
         }
     }
@@ -324,6 +314,10 @@
     let leftArrow;
     let rightArrow;
     let url = '';
+    let idx = 1;
+    let DATA_LEN;
+    let pageMax;
+    let searchData;
 
     pageLinks.forEach((element) => {
         element.addEventListener("click", function () {
@@ -331,26 +325,20 @@
             rightArrow = document.querySelector('.arrow-right');
             aktifLink = document.querySelector('.aktif');
 
-            aktifPageNumber = parseInt(aktifLink.innerText);
-
-            if ((this.innerText === 'chevron_left' && aktifPageNumber === 1) || (this.innerText ===
-                    'chevron_right' && aktifPageNumber === 10)) {
+            if ((this.innerText === 'chevron_left' && idx === 1) || (this.innerText === 'chevron_right' && (idx === pageMax || idx-1 === pageMax))) {
                 return;
             }
 
-            aktifLink.classList = "waves-effect";
-            aktifLink.classList.remove('aktif');
-
             if (this.innerText === 'chevron_left') {
-                handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow);
+                idx -= 1;
+                handleLeftArrowClick(idx, leftArrow, rightArrow);
+                aktifLink.innerText = idx;
             } else if (this.innerText === 'chevron_right') {
-                handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow);
-            } else {
-                handleNumberClick(this, leftArrow, rightArrow);
+                handleRightArrowClick(idx, leftArrow, rightArrow);
+                idx += 1
+                aktifLink.innerText = idx;
             }
-
         });
-
     });
 
 </script>
@@ -358,19 +346,14 @@
     $('#searchWaktu').on('change', function () {
         let value1 = $('#waktu').val();
         let value2 = $('#status').val();
-        console.log(value1);
-        console.log(value2);
         getData(value1, value2, 0);
     })
     $('#search-status').on('change', function () {
         let value1 = $('#waktu').val();
         let value2 = $('#status').val();
-        console.log(value1);
-        console.log(value2);
         getData(value1, value2, 0);
     })
 </script>
-
 <script>
     function onClickModalOpen(id){
         var modalid = "modal " + id;

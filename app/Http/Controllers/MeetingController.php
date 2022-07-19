@@ -91,7 +91,12 @@ class MeetingController extends Controller
     }
 
     public function goToSearch(){
-        $data = DB::table('meetings')->distinct()->get();
+        // $data = DB::table('meetings')
+        // ->select('judul','waktu_rapat')
+        // ->groupBy('waktu_rapat')
+        // ->get();
+        $data = Meetings::all()->unique('waktu_rapat');
+        // dd($data);
         $tes = Meetings::all();
         return view('user.shortcut', compact('data', 'tes'));
     }
@@ -100,10 +105,8 @@ class MeetingController extends Controller
         if($request->ajax()) {
             $output = "";
             $data = null;
-            if($request->search == "" && $request->search1 == ""){
-                $data = Meetings::all();
-            }
-            else if($request->search != "" && $request->search1 == ""){
+
+            if($request->search != "" && $request->search1 == ""){
                 $data = Meetings::where([
                     'waktu_rapat' => $request->search
                 ])->get();
@@ -113,7 +116,7 @@ class MeetingController extends Controller
                     'keterangan' => $request->search1
                 ])->get();
             }
-            else{
+            else if($request->search != "" && $request->search1 != ""){
                 $data = Meetings::where([
                     'waktu_rapat' => $request->search,
                     'keterangan' => $request->search1
@@ -125,5 +128,6 @@ class MeetingController extends Controller
 
         }
     }
+
 
 }
