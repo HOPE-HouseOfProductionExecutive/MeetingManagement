@@ -95,16 +95,7 @@
     <footer class="center-align">
         <ul class="pagination">
             <li class="disabled arrow-left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="aktif"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!">6</a></li>
-            <li class="waves-effect"><a href="#!">7</a></li>
-            <li class="waves-effect"><a href="#!">8</a></li>
-            <li class="waves-effect"><a href="#!">9</a></li>
-            <li class="waves-effect"><a href="#!">10</a></li>
+            <li class="aktif">1</li>
             <li class="waves-effect arrow-right"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </footer>
@@ -112,12 +103,15 @@
 
 
 <script>
+    let DATA_LEN;
+    let pageMax;
     function getData(index) {
         $.get('/pagination/users', function (data) {
+            DATA_LEN = data.length;
+            pageMax = Math.ceil(DATA_LEN / 10);
             let tableBody = document.getElementById("content-table-body");
             let total = 1;
             let html = "";
-            console.log(data)
             for (let i = index; i < data.length && total <= 10; i++) {
                 html += "<tr>";
                 html += "<td>" + (i + 1) + "</td>";
@@ -144,73 +138,33 @@
 
             tableBody.innerHTML = html;
 
-
+            if(data.length<=10){
+                let rightArrow = document.querySelector('.arrow-right');
+                disableRightArrow(rightArrow);
+            }
         });
     }
 
 
-    function handleNumberClick(clickedLink, leftArrow, rightArrow) {
-
-        console.log(clickedLink);
-        clickedLink.parentElement.classList = "aktif";
-        let clickedLinkPageNumber = parseInt(clickedLink.innerText);
-        // console.log((clickedLinkPageNumber*10) - 10);
-        getData(((clickedLinkPageNumber * 10) - 10));
-
-
-        switch (clickedLinkPageNumber) {
-            case 1:
-                disableLeftArrow(leftArrow);
-                if (rightArrow.className.indexOf("disabled") !== -1) {
-                    enableRightArrow(rightArrow);
-                }
-                break;
-            case 10:
-                disableRightArrow(rightArrow);
-                if (leftArrow.className.indexOf('disabled') !== -1) {
-                    enableLeftArrow(leftArrow);
-                }
-                break;
-            default:
-                if (leftArrow.className.indexOf('disabled') !== -1) {
-                    enableLeftArrow(leftArrow);
-                }
-                if (rightArrow.className.indexOf('disabled') !== -1) {
-                    enableRightArrow(rightArrow);
-                }
-                break;
-        }
-    }
-
     function handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow) {
-        //move to previous page
         let previousPage = document.querySelectorAll('li')[aktifPageNumber - 1];
-        previousPage.classList = "aktif";
-        getData(((aktifPageNumber - 1) * 10) - 10);
-
-
-        if (aktifPageNumber === 10) {
+        getData(((aktifPageNumber) * 10) - 10);
+        if (aktifPageNumber != pageMax) {
             enableRightArrow(rightArrow);
         }
-
-        if (aktifPageNumber - 1 === 1) {
+        console.log(aktifPageNumber);
+        if (aktifPageNumber === 1) {
             disableLeftArrow(leftArrow);
         }
     }
 
     function handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow) {
-        //move to next page
         let nextPage = document.querySelectorAll('li')[aktifPageNumber + 1];
-        nextPage.classList = "aktif";
-
         getData(((aktifPageNumber + 1) * 10) - 10);
-
-
         if (aktifPageNumber === 1) {
             enableLeftArrow(leftArrow);
         }
-
-        if (aktifPageNumber + 1 === 10) {
+        if (aktifPageNumber + 1 === pageMax) {
             disableRightArrow(rightArrow);
         }
     }
@@ -238,6 +192,7 @@
     let leftArrow;
     let rightArrow;
     let url = '';
+    let idx = 1;
 
     pageLinks.forEach((element) => {
         element.addEventListener("click", function () {
@@ -245,26 +200,21 @@
             rightArrow = document.querySelector('.arrow-right');
             aktifLink = document.querySelector('.aktif');
 
-            aktifPageNumber = parseInt(aktifLink.innerText);
-
-            if ((this.innerText === 'chevron_left' && aktifPageNumber === 1) || (this.innerText ===
-                    'chevron_right' && aktifPageNumber === 10)) {
+            if ((this.innerText === 'chevron_left' && idx === 1) || (this.innerText ===
+                    'chevron_right' && idx === pageMax)) {
                 return;
             }
 
-            aktifLink.classList = "waves-effect";
-            aktifLink.classList.remove('aktif');
-
             if (this.innerText === 'chevron_left') {
-                handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow);
+                idx -= 1;
+                handleLeftArrowClick(idx, leftArrow, rightArrow);
+                aktifLink.innerText = idx;
             } else if (this.innerText === 'chevron_right') {
-                handleRightArrowClick(aktifPageNumber, leftArrow, rightArrow);
-            } else {
-                handleNumberClick(this, leftArrow, rightArrow);
+                handleRightArrowClick(idx, leftArrow, rightArrow);
+                idx += 1
+                aktifLink.innerText = idx;
             }
-
         });
-
     });
 
 </script>
