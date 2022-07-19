@@ -144,6 +144,10 @@ $time2 = $time->isoformat('DD MMMM YYYY');
                 html += "</tr>";
             }
             tableBody.innerHTML = html;
+            if(data.length<=10){
+                let rightArrow = document.querySelector('.arrow-right');
+                disableRightArrow(rightArrow);
+            }
         });
     }
 

@@ -58,7 +58,7 @@
                     <input type="hidden" name="emailf" id="emailf">
 
                     <button type="submit" name="action" value="login" class="submit-btn" id="submit-login">Login</button>
-                    <button type="submit" name="action" value="forgot" class="forgot-btn" id="forgot">Forgot Password?</button>
+                    <button type="submit" name="action" value="forgot" class="forgot-btn" id="forgot">Lupa Kata Sandi?</button>
                 </form>
             </div>
         </div>
