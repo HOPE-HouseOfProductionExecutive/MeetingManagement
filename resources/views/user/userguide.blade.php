@@ -17,7 +17,7 @@
                 <div class="separate">
                     <p class="st">1. Login</p>
             
-                    <p> tampilan login terdapat kolom email dan password yang mana dapat di isi untuk masuk ke halaman utama website. Terdapat juga tombol 'forgot password' dengan fungsi sistem akan mengirimkan password ke email user yang telah di daftarkan sebelumnya</p>
+                    <p> tampilan login terdapat kolom email dan password yang mana dapat di isi untuk masuk ke halaman utama website. Terdapat juga tombol 'forgot password' dengan fungsi sistem akan mengirimkan password ke email user yang telah di daftarkan sebelumnya.</p>
                 </div>
                 <div class="separate">
                     <p class="st">2. Beranda</p>
@@ -38,12 +38,17 @@
                     <p class="st">5. Registrasi</p>
             
                     <p>Pada Halaman Registrasi hanya master akun yang dapat melihat halaman ini. Pada halaman ini Master akun dapat membuat akun untuk admin dan user. Admin adalah jabatan yang dapat mengubah data rapat dan menghapus, User hanya dapat melihat data rapat dan tidak dapat mengubah data rapat dan menghapus. Sedangkan master akun dapat menghapus admin dan user akun.
-                    .</p>
+                    </p>
                 </div>
                 <div class="separate">
                     <p class="st">6. Akun</p>
             
                     <p>Pada Halaman akun terdapat informasi tentang akun yang sedang digunakan dan User dapat mengganti password dengan memverifikasi menggunakan password sebelumnya.</p>
+                </div>
+                <div class="separate">
+                    <p class="st">-- Lupa Kata Sandi</p>
+            
+                    <p>Jika user lupa kata sandi akun, maka user cukup mengisi komol email pada halaman login kemudian klik tomblol "Lupa Kata sandi?". Nanti Kata sandi akan dikirimkan melalui email yang telah terdaftar (cek pada kolom inbox atau kolom spam pada email)</p>
                 </div>
             </div>
         </div>
