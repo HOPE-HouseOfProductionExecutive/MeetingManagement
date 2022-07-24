@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Dashboard')
+@section('title', 'Bantuan')
 @section('content')
 
 <head>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="separate">
                     <p class="st">-- Lupa Kata Sandi</p>
-                    
+
                     <p>Jika user lupa kata sandi akun, maka user cukup mengisi komol email pada halaman login kemudian klik tomblol "Lupa Kata sandi?". Nanti Kata sandi akan dikirimkan melalui email yang telah terdaftar (cek pada kolom inbox atau kolom spam pada email)</p>
                 </div>
             </div>

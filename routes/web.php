@@ -27,9 +27,12 @@ Route::group(['middleware'=>['auth']], function(){
 
     Route::group(['middleware'=>['admin']], function(){
         Route::get('/manage', [MeetingController::class, 'goToManage']);
-        Route::post('/store', [MeetingController::class, 'storeMeetingData'])->name('store');
+        Route::post('/store/meeting', [MeetingController::class, 'storeMeetingData'])->name('storeMeeting');
+        Route::post('/store/title', [MeetingController::class, 'storeTitle'])->name('storeTitle');
         Route::put('/update', [MeetingController::class, 'updateMeetingData']);
         Route::delete('/delete', [MeetingController::class, 'deleteMeetingData']);
+        Route::get('/meetingTitle', [MeetingController::class, 'showMeettingTitle']);
+        Route::get('/meetingDate', [MeetingController::class, 'getDateTitle']);
     });
 
     Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
@@ -60,6 +63,7 @@ Route::post('/login/user', [UserController::class, 'login']);
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
 
 Route::get('/isl', function () {
     return view('user.carrousel');
