@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Dashboard')
+@section('title', 'Akun')
 @section('content')
 <link rel="stylesheet" href="/Assets/css/user/account/style.css">
 

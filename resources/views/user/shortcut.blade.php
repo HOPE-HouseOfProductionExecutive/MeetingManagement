@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Dashboard')
+@section('title', 'Pencarian Data')
 @section('content')
 
 <link rel="stylesheet" href="Assets/css/user/shortcut/style.css">

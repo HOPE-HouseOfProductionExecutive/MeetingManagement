@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Meetings extends Model
 {
     use HasFactory;
+
+    public function title(){
+        return $this->belongsTo(Title::class, "title_id", "id");
+    }
 }

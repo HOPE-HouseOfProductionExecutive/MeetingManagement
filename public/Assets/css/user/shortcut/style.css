@@ -178,7 +178,7 @@ details[open] summary:after {
 
 .custom-select ul {
     width: 100%;
-    background: #74cbfa;
+    background: #9dddff;
     position: absolute;
     top: calc(100% + .5rem);
     left: 0;
@@ -291,8 +291,8 @@ section {
     background-color: #3FA1D7;
     width: 23px;
   }
-  
-  
+
+
   footer{
     position: absolute;
     bottom: 17px;
