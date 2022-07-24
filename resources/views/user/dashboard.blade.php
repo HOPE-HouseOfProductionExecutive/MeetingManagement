@@ -54,6 +54,9 @@
 $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
 $time->settings(['formatFunction' => 'translatedFormat']);
 $time1 = $time->isoformat('dddd, DD MMMM YYYY');
+
+$time = \Carbon\Carbon::parse($item->waktu_selesai)->locale('id');
+$time->settings(['formatFunction' => 'translatedFormat']);
 $time2 = $time->isoformat('DD MMMM YYYY');
 @endphp
 <div class="opacity" id="modal {{$item->id}}">

@@ -26,15 +26,15 @@ section {
     padding-top: 3px;
     background-color: #3FA1D7;
     width: 23px;
-  }
-  
-  
-  footer{
+}
+
+
+footer {
     position: absolute;
     bottom: 17px;
     transform: translateX(-50%);
     left: 50%;
-  }
+}
 
 button {
     border-style: none;
@@ -77,6 +77,16 @@ button {
     margin: 0;
 
     color: #000000;
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.td_box {
+    padding: 0 10px;
 }
 
 .td_box button {
@@ -327,11 +337,11 @@ form {
     left: 50%;
 }
 
-.hapus_layer button{
+.hapus_layer button {
     cursor: pointer;
 }
 
-.hapus_layer button:focus{
+.hapus_layer button:focus {
     background: none;
 }
 
@@ -395,4 +405,83 @@ form {
     height: 100%;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(4px);
+}
+
+.body {
+    /* min-height: 100vh; */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.select {
+    position: relative;
+    min-width: 200px;
+}
+
+.select svg {
+    position: absolute;
+    right: 12px;
+    top: 60%;
+    width: 10px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.select select {
+    display: block;
+    -webkit-appearance: none;
+    padding: 1px 40px 1px 12px;
+    height: 30px;
+    width: 100%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 150ms ease;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.select select:required:invalid {
+    color: #5a667f;
+}
+
+.select select option {
+    color: #223254;
+}
+
+.select select option[value=""][disabled] {
+    display: none;
+}
+
+.select select:focus {
+    outline: none;
+    border-color: #07f;
+    box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+
+.select select:hover+svg {
+    stroke: #07f;
+}
+
+.sprites {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
 }

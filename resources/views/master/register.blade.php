@@ -61,7 +61,7 @@
                     <label for="role">Role</label>
                     <select style="display: block; padding: 0 0 0 10px; height: 30px;" id="role" name="role">
                         <option value=""></option>
-                        <option value="1">User</option>
+                        <option value="3">User</option>
                         <option value="2">Admin</option>
                     </select>
                 </div>

@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->string('judul', 255);
+            $table->bigInteger('title_id')->references('id')->on('titles')->onUpdate('cascade')->onDelete('cascade');
             $table->string('tindak_lanjut', 255);
             $table->string('SKPD', 255);
             $table->string('progress', 255);
             $table->string('data_pendukung', 255)->nullable();
             $table->string('keterangan');
-            $table->date('waktu_rapat');
             $table->date('waktu_selesai');
             $table->timestamps();
         });

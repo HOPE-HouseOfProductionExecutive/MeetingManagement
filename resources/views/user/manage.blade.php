@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Dashboard')
+@section('title', 'Pengelolaan Data')
 @section('content')
 
 <link rel="stylesheet" href="Assets/css/user/manage/style.css">
@@ -13,14 +13,14 @@
 
 <body onload="getData(0);"></body>
 
-<div class="opacity" id="modal tambah">
+<div class="opacity" id="modal tambah judul">
     <div class="tambah_data_layer">
         <div class="tambah_data_box">
             <h2>
-                Penambahan Data Rapat
+                Penambahan Judul Rapat
             </h2>
             <hr>
-            <form action="/store" method="POST">
+            <form action="/store/title" method="POST">
                 @csrf
                 <div class="input_box">
                     <label for="judul_rapat">Judul Rapat</label>
@@ -30,52 +30,6 @@
                     border:none;
                     border-radius: 4px;
                     font-size: 14px;">
-                </div>
-                <div class="input_box">
-                    <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
-                    <input required type="text" id="tindak_lanjut" name="tindak_lanjut" style=" background-color: white;padding-left: 10px;
-                    height: 30px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border:none;
-                    border-radius: 4px;
-                    font-size: 14px;">
-                </div>
-                <div class="input_box">
-                    <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
-                    <input required type="text" id="penanggung_jawab" name="penanggung_jawab" style=" background-color: white;padding-left: 10px;
-                    height: 30px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border:none;
-                    border-radius: 4px;
-                    font-size: 14px;">
-                </div>
-                <div class="input_box">
-                    <label for="progres_rapat">Progres</label>
-                    <input required type="text" id="progres_rapat" name="progres_rapat" style=" background-color: white;padding-left: 10px;
-                    height: 30px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border:none;
-                    border-radius: 4px;
-                    font-size: 14px;">
-                </div>
-                <div class="input_box">
-                    <label for="data_pendukung">Data Pendukung</label>
-                    <input type="text" id="data_pendukung" name="data_pendukung" style=" background-color: white;padding-left: 10px;
-                    height: 25px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border:none;
-                    border-radius: 4px;
-                    font-size: 14px;">
-                </div>
-                <div class="waktu_form">
-                    <label for="batas_waktu">Batas Waktu</label>
-                    <input required type="date" id="batas_waktu" name="batas_waktu" style="height: 25px;
-                    padding-left: 10px;
-                    background: #FFFFFF;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border:none;
-                    border-radius: 4px;
-                    cursor: pointer;">
                 </div>
                 <div class="waktu_form">
                     <label for="waktu_rapat">Waktu Rapat</label>
@@ -94,9 +48,101 @@
         </div>
     </div>
 </div>
+<div class="opacity" id="modal tambah tindak">
+    <div class="tambah_data_layer">
+        <div class="tambah_data_box">
+            <h2>
+                Penambahan Tindak Lanjut Rapat
+            </h2>
+            <hr>
+            <form action="/store/meeting" method="POST">
+                @csrf
+                <div class="input_box">
+                    <label for="waktu_rapat">Judul Rapat</label>
+                    <label class="select" for="slct">
+                        <select name="judul_rapat" id="slct" required="required">
+                            <option value="" disabled="disabled" selected="selected">Pilih Judul Rapat</option>
+                        </select>
+                        <svg>
+                            <use xlink:href="#select-arrow-down"></use>
+                        </svg>
+                    </label>
+                    <!-- SVG Sprites-->
+                    <svg class="sprites">
+                        <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                            <polyline points="1 1 5 5 9 1"></polyline>
+                        </symbol>
+                    </svg>
+                </div>
+                <div class="input_box">
+                    <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
+                    <input required type="text" id="tindak_lanjut" name="tindak_lanjut" style="box-sizing:border-box; background-color: white;padding-left: 10px;
+                    height: 30px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    font-size: 14px;">
+                </div>
+                <div class="input_box">
+                    <label for="penanggung_jawab">SKDP Penanggung Jawab</label>
+                    <input required type="text" id="penanggung_jawab" name="penanggung_jawab" style="box-sizing:border-box; background-color: white;padding-left: 10px;
+                    height: 30px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    font-size: 14px;">
+                </div>
+                <div class="input_box">
+                    <label for="progres_rapat">Progres</label>
+                    <input required type="text" id="progres_rapat" name="progres_rapat" style="box-sizing:border-box; background-color: white;padding-left: 10px;
+                    height: 30px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    font-size: 14px;">
+                </div>
+                <div class="input_box">
+                    <label for="data_pendukung">Data Pendukung</label>
+                    <input type="text" id="data_pendukung" name="data_pendukung" style="box-sizing:border-box; background-color: white;padding-left: 10px;
+                    height: 25px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    font-size: 14px;">
+                </div>
+                <div class="waktu_form">
+                    <label for="batas_waktu">Batas Waktu</label>
+                    <input required type="date" id="batas_waktu" name="batas_waktu" style="box-sizing:border-box;height: 25px;
+                    padding-left: 10px;
+                    background: #FFFFFF;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    cursor: pointer;">
+                </div>
+                <div class="waktu_form">
+                    <label for="waktu_rapat">Waktu Rapat</label>
+                    <input disabled type="date" placeholder="mm/dd/yyyy" id="waktu_rapats" name="waktu_rapat" style="box-sizing:border-box;height: 25px;
+                    padding-left: 10px;
+                    background: #FFFFFF;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border:none;
+                    border-radius: 4px;
+                    cursor: pointer;">
+                </div>
+                <div class="tombol_tambah">
+                    <input type="submit" value="Tambah Data">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 @foreach ($data as $item)
 <div class="opacity" id="modal {{$item->id}}">
+    <p>{{$item->id}}</p>
     <div class="tambah_data_layer">
         <div class="tambah_data_box">
             <h2>
@@ -114,7 +160,7 @@
                         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                         border:none;
                         border-radius: 4px;
-                        font-size: 14px;" type="text" id="judul_rapat" name="judul_rapat" value="{{$item->judul}}">
+                        font-size: 14px;" type="text" id="judul_rapat" name="judul_rapat" value="{{$item->title->judul}}">
                 </div>
                 <div class="input_box">
                     <label for="tindak_lanjut">Tindak Lanjut Hasil Rapat</label>
@@ -174,7 +220,7 @@
                         border:none;
                         border-radius: 4px;
                         font-size: 14px;" type="date" id="waktu_rapat" name="waktu_rapat"
-                        value="{{$item->waktu_rapat}}">
+                        value="{{$item->title->waktu_rapat}}">
                 </div>
                 <div class="perubahan_status_box">
                     <label for="perubahan_status">Status</label>
@@ -217,8 +263,13 @@
 <div class="manage_layer">
     <div class="manage_upper">
         <h3>Pengelolaan Data</h3>
-        <div class="td_box">
-            <button id="tambah" onclick="onClickModalTambah()">Tambah Data</button>
+        <div class="button-box">
+            <div class="td_box">
+                <button id="judul" onclick="onClickModalTambah(this.id)">Tambah Judul Rapat</button>
+            </div>
+            <div class="td_box">
+                <button id="tindak" onclick="onClickModalTambah(this.id)">Tambah Tindak Lanjut</button>
+            </div>
         </div>
     </div>
     <section id="table">
@@ -247,6 +298,7 @@
 <script>
     let DATA_LEN;
     let pageMax;
+
     function getData(index) {
         $.get('/pagination/ajax', function (data) {
             DATA_LEN = data.length;
@@ -256,7 +308,7 @@
             let html = "";
             for (let i = index; i < data.length && total <= 10; i++) {
                 html += "<tr>";
-
+                console.log(data[i].id);
                 html += "<td class='nomor'>" + (i + 1) + "</td>";
                 html += "<td class='waktu'>" + data[i].waktu_rapat + "</td>";
                 html += "<td class='judul'>" + data[i].judul + "</td>";
@@ -270,7 +322,7 @@
                 html += "</tr>";
             }
             tableBody.innerHTML = html;
-            if(data.length<=10){
+            if (data.length <= 10) {
                 let rightArrow = document.querySelector('.arrow-right');
                 disableRightArrow(rightArrow);
             }
@@ -347,15 +399,18 @@
             }
         });
     });
+
 </script>
 <script>
-    function onClickModalTambah() {
-        var modal = document.getElementById('modal tambah');
+    function onClickModalTambah(id) {
+        var modalid = "modal tambah " + id;
+        var modal = document.getElementById(modalid);
         modal.style.display = "block";
     }
 
     function onClickModalEdit(id) {
         var modalid = "modal " + id;
+        console.log(id);
         var modal = document.getElementById(modalid);
         modal.style.display = "block";
     }
@@ -382,5 +437,34 @@
     }
 
 </script>
+<script>
+    let date;
+    $('#tindak').on('click', function(){
+        console.log("kontol");
+        $.ajax({
+            url: "/meetingTitle",
+            method: "get",
+            success: function(data){
+                $("#slct").html(data)
+            }
+        });
+    });
+    $('#slct').on('change', function(){
+        let titles = $('#slct').val();
+        $.ajax({
+            url: "/meetingDate",
+            method: "get",
+            data: {
+                'title': titles,
+            },
+            success: function(data){
+                console.log(data.waktu_rapat);
+                $("#waktu_rapats").val(data.waktu_rapat);
+                // $('')
+            }
+        });
+    });
+</script>
+
 
 @endsection
