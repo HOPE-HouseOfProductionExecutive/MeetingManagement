@@ -65,5 +65,6 @@ Route::get('/login', function () {
 })->name('login');
 
 
-
-
+Route::get('/isl', function () {
+    return view('user.carrousel');
+});
