@@ -38,9 +38,9 @@
     <div class="main">
         <div class="content">
             <div class="top">
-                <h1>Management</h1>
-                <h1>Conferences</h1>
-                <h2>Application</h2>
+                <h1>Sistem Monitoring</h1>
+                <h1>Tindak Lanjut Rapat </h1>
+                <h2>Biro Pembangunan dan Lingkungan Hidup</h2>
             </div>
 
             <div class="bottom">
