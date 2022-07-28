@@ -38,9 +38,11 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/', [MeetingController::class, 'goToDashboard'])->name('dashboard');
 
     Route::get('/pagination/ajax', [MeetingController::class, 'paginate']);
+    Route::get('/pagination/ajax/home', [MeetingController::class, 'paginateHome']);
 
     Route::get('/search-data', [MeetingController::class, 'goToSearch'])->name('search');
     Route::get('/search', [MeetingController::class, 'search']);
+    Route::get('/search/slider', [MeetingController::class, 'getModalDetailDash']);
 
     Route::get('/account', function () {
         return view('user.account');
