@@ -99,8 +99,10 @@
                 <p>Waktu Rapat</p>
                 <details class="custom-select">
                     <summary class="radios" id="searchWaktu">
-                        <input disabled type="radio" name="item" onclick="changeValueHidden(this.id, 'waktu')" id="item"
+                        <input type="radio" name="item" onclick="changeValueHidden(this.id, 'waktu')" id="item"
                             title="Pilih Waktu Rapat" checked>
+                        <input type="radio" name="item" onclick="changeValueHidden(this.id, 'waktu')" id="item-null"
+                            title="Pilih Waktu Rapat" value="">
 
                         @foreach ($data as $item)
                         @php
@@ -114,6 +116,11 @@
                     </summary>
                     <input type="hidden" id="waktu" name="waktu" value="">
                     <ul class="list">
+                        <li>
+                            <label for="item-null">
+                                Pilih Waktu Rapat
+                            </label>
+                        </li>
                         @foreach ($data as $item)
                         @php
                         $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');

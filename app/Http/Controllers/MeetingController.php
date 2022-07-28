@@ -157,9 +157,10 @@ class MeetingController extends Controller
                 // ])->get();
                 $data = DB::select("
                     SELECT * FROM titles
-                    WHERE waktu_rapat = $request->search
-                ");
+                    WHERE judul LIKE '%$request->search1%'
+                    AND waktu_rapat = '$request->search'
 
+                ");
             }
             if($data) {
                 return response()->json($data);
