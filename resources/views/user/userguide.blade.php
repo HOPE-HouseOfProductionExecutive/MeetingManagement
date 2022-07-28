@@ -22,7 +22,7 @@
                 <div class="separate">
                     <p class="st">2. Beranda</p>
 
-                    <p>Pada Beranda terdapat tampilan singkat dari rapat yang ada. Ada tombol mata yang mana jika di klik akan memunculkan popup detail dari rapat tersebut.</p>
+                    <p>Pada Beranda terdapat tampilan singkat dari rapat yang ada. Ada tombol mata yang mana jika di klik akan memunculkan popup detail dari rapat tersebut. Pada tampilan popup, user dapat mengklik tombol selanjutnya ataupun sebelumnya pada setiap pojok layar untuk melihat tindak lanjut hasil lainnya.</p>
                 </div>
                 <div class="separate">
                     <p class="st">3. Pengelolaan</p>
@@ -49,6 +49,11 @@
                     <p class="st">-- Lupa Kata Sandi</p>
 
                     <p>Jika user lupa kata sandi akun, maka user cukup mengisi komol email pada halaman login kemudian klik tomblol "Lupa Kata sandi?". Nanti Kata sandi akan dikirimkan melalui email yang telah terdaftar (cek pada kolom inbox atau kolom spam pada email)</p>
+                </div>
+                <div class="separate">
+                    <p class="st">-- Memasukan Data Rapat</p>
+
+                    <p>Memasukan data rapat hanya bisa dilakukan pada halaman 'Pengelolaan'. Pastikan user menginput Judul Rapat terlebih dahulu agar bisa menambahkan Data Tindak Lanjut untuk setiap Rapat.</p>
                 </div>
             </div>
         </div>

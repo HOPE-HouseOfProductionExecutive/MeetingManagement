@@ -130,23 +130,28 @@ button {
 }
 
 .nomor {
-    width: 5%;
+    width: 3%;
 }
 
 .waktu {
-    width: 13%;
+    width: 9%;
 }
 
 .judul {
-    width: 48%;
+    width: 35%;
 }
 
+.tindak_lanjut{
+    width: 22%;
+}
+
+
 .status {
-    width: 100px;
+    width: 9%;
 }
 
 .progres {
-    width: 16%;
+    width: 15%;
 }
 
 .kosong {
