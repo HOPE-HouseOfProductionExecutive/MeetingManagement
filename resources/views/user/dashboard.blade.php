@@ -7,80 +7,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta name="_token" content="{{ csrf_token() }}">
-{{-- @foreach ($data as $item)
-@php
-$time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
-$time->settings(['formatFunction' => 'translatedFormat']);
-$time1 = $time->isoformat('dddd, DD MMMM YYYY');
-
-$time = \Carbon\Carbon::parse($item->waktu_selesai)->locale('id');
-$time->settings(['formatFunction' => 'translatedFormat']);
-$time2 = $time->isoformat('DD MMMM YYYY');
-@endphp
-<div class="opacity" id="modal {{$item->id}}">
-<div class="detail_rapat_popup">
-    <div class="inner_detail_popup">
-        @php
-        if($item->keterangan == "Selesai"){
-        $style = "background:#39A952";
-        }else{
-        $style = "background:#FF0000";
-        }
-        @endphp
-        <div class="status" style={{$style}}>
-            <p>{{$item->keterangan}}</p>
-        </div>
-        <div class="detail1">
-            <h2>{{$time1}}</h2>
-        </div>
-        <div class="detail2">
-            <div class="skdp_box">
-                <h4>SKDP
-                </h4>
-                <p>{{$item->SKPD}}</p>
-            </div>
-            <div class="dl_box">
-                <h4>
-                    Batas Waktu
-                </h4>
-                <p>{{$time2}}</p>
-            </div>
-            <div class="dp_box">
-                <h4>
-                    Data Pendukung
-                </h4>
-                @php
-                if($item->data_pendukung == null){
-                $data_pendukung = 'Tidak Ada';
-                }else{
-                $data_pendukung = 'Ada';
-                }
-                @endphp
-                <p>{{$data_pendukung}}</p>
-            </div>
-        </div>
-        <div class="detail3">
-            <div class="judul_box">
-                <h4>
-                    Judul Rapat
-                </h4>
-                <p>{{$item->judul}}</p>
-            </div>
-            <div class="progres_box">
-                <h4>
-                    Progres Rapat
-                </h4>
-                <p>{{$item->progress}}</p>
-            </div>
-            <div class="hasil_box">
-                <h4>Hasil Rapat</h4>
-                <p>{{$item->tindak_lanjut}}</p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-@endforeach --}}
 <body onload="getData(0);"></body>
 
 <div class="opacity" id="modal opacity">
@@ -136,7 +62,6 @@ $time2 = $time->isoformat('DD MMMM YYYY');
                     </div>
                 </div>
             </div> --}}
-
 
         </div>
         <br>
@@ -224,7 +149,6 @@ $time2 = $time->isoformat('DD MMMM YYYY');
         if (aktifPageNumber != pageMax) {
             enableRightArrow(rightArrow);
         }
-        console.log(aktifPageNumber);
         if (aktifPageNumber === 1) {
             disableLeftArrow(leftArrow);
         }
@@ -293,8 +217,6 @@ $time2 = $time->isoformat('DD MMMM YYYY');
 </script>
 
 <script>
-    function getAjaxData(){
-    }
     function onClickModalOpen(id) {
         $.ajax({
             type: "get",
@@ -344,7 +266,6 @@ $time2 = $time->isoformat('DD MMMM YYYY');
     function showSlides(n) {
         let i;
         let slides = document.getElementsByClassName("mySlides");
-        console.log(slides);
         if (n > slides.length) {
             slideIndex = 1
         }

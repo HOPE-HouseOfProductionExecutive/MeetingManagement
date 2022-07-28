@@ -152,7 +152,6 @@
         if (aktifPageNumber != pageMax) {
             enableRightArrow(rightArrow);
         }
-        console.log(aktifPageNumber);
         if (aktifPageNumber === 1) {
             disableLeftArrow(leftArrow);
         }
@@ -233,7 +232,6 @@
     function onClickClose(id) {
         var modalid = "modal delete " + id;
         var modal = document.getElementById(modalid);
-        // console.log(modalid);
         modal.style.display = "none";
     }
 

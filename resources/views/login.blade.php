@@ -69,11 +69,9 @@
 <script>
     $('#email').on('keypress', function() {
         $('#emailf').val($('#email').val());
-        console.log($('#emailf').val());
     });
     $('#forgot').on('click', function(){
         $('#emailf').val($('#email').val());
-        console.log($('#emailf').val());
     });
 </script>
 <script>

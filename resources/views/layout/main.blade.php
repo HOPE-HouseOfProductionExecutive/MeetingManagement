@@ -35,7 +35,7 @@
                 <li>
                     <a href="/manage">
                         <img src="/Assets/icons/file-02.svg" alt="">
-                        <img class="hover" src="/Assets/icons/icon1.svg" alt="">
+                        <img class="hover" src="/Assets/icons/file-01.svg" alt="">
                         <span class="links">Pengelolaan</span>
                     </a>
                     {{-- <span class="tooltip">Pengelolaan</span> --}}
