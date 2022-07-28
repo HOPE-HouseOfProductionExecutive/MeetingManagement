@@ -16,11 +16,11 @@
             <p>{{$total_rapat}}</p>
         </div>
         <div class="c1">
-            <h3>Rapat Selesai</h3>
+            <h3>Tindak Lanjut Selesai</h3>
             <p>{{$rapat_selesai}}</p>
         </div>
         <div class="c1">
-            <h3>Total Rapat Terdekat</h3>
+            <h3>Tindak Lanjut Terdekat</h3>
             <p>{{$rapat_terdekat}}</p>
         </div>
         <div class="c2">
@@ -32,8 +32,8 @@
         <table>
             <thead>
                 <th>No</th>
-                <th>Waktu</th>
-                <th>Judul</th>
+                <th>Waktu Rapat</th>
+                <th>Judul Rapat</th>
             </thead>
             <tbody id="content-table-body">
 
