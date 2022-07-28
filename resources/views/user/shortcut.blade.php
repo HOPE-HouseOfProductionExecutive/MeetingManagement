@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <meta name="_token" content="{{ csrf_token() }}">
 <body onload="getData('', '', 0);"></body>
-
+{{--
 @foreach ($tes as $item)
 @php
     $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
@@ -79,7 +79,7 @@
         </div>
     </div>
 </div>
-@endforeach
+@endforeach --}}
 
 
 
@@ -89,11 +89,17 @@
         <h3>Pencarian Data Rapat</h3>
     </div>
     <div class="shortcut_box">
+            <div class="shortcut_search">
+                <div class="shortcut_search_box">
+                    <input type="text" id="title-search" placeholder="Cari Data">
+                </div>
+            </div>
+
             <div class="shortcut_waktu">
                 <p>Waktu Rapat</p>
                 <details class="custom-select">
                     <summary class="radios" id="searchWaktu">
-                        <input type="radio" name="item" onclick="changeValueHidden(this.id, 'waktu')" id="item"
+                        <input disabled type="radio" name="item" onclick="changeValueHidden(this.id, 'waktu')" id="item"
                             title="Pilih Waktu Rapat" checked>
 
                         @foreach ($data as $item)
@@ -120,30 +126,6 @@
                             </label>
                         </li>
                         @endforeach
-                    </ul>
-                </details>
-            </div>
-            <div class="shortcut_status">
-                <p>Status Rapat</p>
-                <details class="custom-select">
-                    <summary class="radios" id="search-status">
-                        <input type="radio" name="items" onclick="changeValueHidden(this.id, 'status')" id="items"
-                            title="Pilih Status Rapat" checked>
-                        <input type="radio" name="items" onclick="changeValueHidden(this.id, 'status')" id="items1"
-                            title="Selesai" value="Selesai">
-                        <input type="radio" name="items" onclick="changeValueHidden(this.id, 'status')" id="items2"
-                            title="Belum Selesai" value="Belum Selesai">
-                    </summary>
-                    <input type="hidden" id="status" name="status" value="">
-                    <ul class="list" style="padding-left: 1rem;">
-                        <li>
-                            <label for="items1">
-                                Selesai
-                            </label>
-                        </li>
-                        <li>
-                            <label for="items2">Belum Selesai</label>
-                        </li>
                     </ul>
                 </details>
             </div>
@@ -185,7 +167,6 @@
         } else {
             var input = document.getElementById('status');
         }
-
         input.value = testing.value;
     }
 </script>
@@ -197,6 +178,7 @@
         idx = 1;
         pageMax = Math.ceil(DATA_LEN/10);
     }
+
     function paginationAjax(index){
         let tableBody = document.getElementById("content-table-body");
         let total = 1;
@@ -215,9 +197,11 @@
         }
         tableBody.innerHTML = html;
     }
+
      function ajaxError(){
         let aktifLink = document.querySelector('.aktif');
         index = 1;
+        console.log("salah")
         aktifLink.innerText = idx;
     }
 
@@ -234,6 +218,7 @@
                 'search1' : searches2
             },
             success: function (data) {
+                console.log(data);
                 successAjax(data);
                 let tableBody = document.getElementById("content-table-body");
                 let total = 1;
@@ -345,14 +330,16 @@
 <script>
     $('#searchWaktu').on('change', function () {
         let value1 = $('#waktu').val();
-        let value2 = $('#status').val();
+        let value2 = $('#title-search').val();
         getData(value1, value2, 0);
-    })
-    $('#search-status').on('change', function () {
+    });
+    $('#title-search').on('keyup', function () {
         let value1 = $('#waktu').val();
-        let value2 = $('#status').val();
+        let value2 = $('#title-search').val();
+        console.log(value2);
         getData(value1, value2, 0);
     })
+
 </script>
 <script>
     function onClickModalOpen(id){

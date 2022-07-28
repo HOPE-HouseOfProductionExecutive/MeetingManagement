@@ -127,31 +127,39 @@ class MeetingController extends Controller
     }
 
     public function goToSearch(){
-        $data = Meetings::all()->unique('waktu_rapat');
-        $tes = Meetings::all();
+        $data = Title::all()->unique('waktu_rapat');
+        $tes = Title::all();
         return view('user.shortcut', compact('data', 'tes'));
+        // $req = 'Rapat';
+        // $kn = Title::where('judul', 'LIKE', $req.'%')->get();
+        // dd($kn);
     }
 
     public function search(Request $request) {
         if($request->ajax()) {
-            $output = "";
             $data = null;
 
             if($request->search != "" && $request->search1 == ""){
-                $data = Meetings::where([
+                $data = Title::where([
                     'waktu_rapat' => $request->search
                 ])->get();
             }
             else if($request->search == "" && $request->search1 != ""){
-                $data = Meetings::where([
-                    'keterangan' => $request->search1
-                ])->get();
+                $data = Title::where('judul', 'LIKE', '%'.$request->search1.'%')->get();
             }
             else if($request->search != "" && $request->search1 != ""){
-                $data = Meetings::where([
-                    'waktu_rapat' => $request->search,
-                    'keterangan' => $request->search1
-                ])->get();
+                // $data = Title::where([
+                //     'waktu_rapat' => $request->search
+                // ])->get();
+                // $data = Title::where([
+                //     'waktu_rapat' => $request->search,
+                //     'judul' => $request->search1
+                // ])->get();
+                $data = DB::select("
+                    SELECT * FROM titles
+                    WHERE waktu_rapat = $request->search
+                ");
+
             }
             if($data) {
                 return response()->json($data);
