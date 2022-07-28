@@ -309,11 +309,10 @@
             let html = "";
             for (let i = index; i < data.length && total <= 10; i++) {
                 html += "<tr>";
-                console.log(data[i].id);
                 html += "<td class='nomor'>" + (i + 1) + "</td>";
                 html += "<td class='waktu'>" + data[i].waktu_rapat + "</td>";
                 html += "<td class='judul'>" + data[i].judul + "</td>";
-                html += "<td class='tindak_lanjut'>" + data[i].judul + "</td>";
+                html += "<td class='tindak_lanjut'>" + data[i].tindak_lanjut + "</td>";
                 html += "<td class='progres'>" + data[i].progress + "</td>";
                 html += "<td>" + data[i].keterangan + "</td>";
                 html += "<td class='edit'><button id='" + data[i].id +
@@ -337,7 +336,6 @@
         if (aktifPageNumber != pageMax) {
             enableRightArrow(rightArrow);
         }
-        console.log(aktifPageNumber);
         if (aktifPageNumber === 1) {
             disableLeftArrow(leftArrow);
         }
@@ -412,7 +410,6 @@
 
     function onClickModalEdit(id) {
         var modalid = "modal " + id;
-        console.log(id);
         var modal = document.getElementById(modalid);
         modal.style.display = "block";
     }
@@ -458,7 +455,6 @@
                 'title': titles,
             },
             success: function(data){
-                console.log(data.waktu_rapat);
                 $("#waktu_rapats").val(data.waktu_rapat);
                 // $('')
             }

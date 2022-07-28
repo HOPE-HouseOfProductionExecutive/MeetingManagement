@@ -8,79 +8,66 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <meta name="_token" content="{{ csrf_token() }}">
 <body onload="getData('', '', 0);"></body>
-{{--
-@foreach ($tes as $item)
-@php
-    $time = \Carbon\Carbon::parse($item->waktu_rapat)->locale('id');
-    $time->settings(['formatFunction' => 'translatedFormat']);
-    $time1 = $time->isoformat('dddd, DD MMMM YYYY');
-    $time2 = $time->isoformat('DD MMMM YYYY');
-@endphp
-<div class="opacity" id="modal {{$item->id}}">
-    <div class="detail_rapat_popup">
-        <div class="inner_detail_popup">
-            @php
-                if($item->keterangan == "Selesai"){
-                    $style = "background:#39A952";
-                }else{
-                    $style = "background:#FF0000";
-                }
-            @endphp
-            <div class="status" style={{$style}}>
-                <p>{{$item->keterangan}}</p>
-            </div>
-            <div class="detail1">
-                <h2>{{$time1}}</h2>
-            </div>
-            <div class="detail2">
-                <div class="skdp_box">
-                    <h4>SKDP
-                    </h4>
-                    <p>{{$item->SKPD}}</p>
-                </div>
-                <div class="dl_box">
-                    <h4>
-                        Batas Waktu
-                    </h4>
-                    <p>{{$time2}}</p>
-                </div>
-                <div class="dp_box">
-                    <h4>
-                        Data Pendukung
-                    </h4>
-                    @php
-                        if($item->data_pendukung == null){
-                            $data_pendukung = 'Tidak Ada';
-                        }else{
-                            $data_pendukung = 'Ada';
-                        }
-                    @endphp
-                    <p>{{$data_pendukung}}</p>
-                </div>
-            </div>
-            <div class="detail3">
-                <div class="judul_box">
-                    <h4>
-                        Judul Rapat
-                    </h4>
-                    <p>{{$item->judul}}</p>
-                </div>
-                <div class="progres_box">
-                    <h4>
-                        Progres Rapat
-                    </h4>
-                    <p>{{$item->progress}}</p>
-                </div>
-                <div class="hasil_box">
-                    <h4>Hasil Rapat</h4>
-                    <p>{{$item->tindak_lanjut}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach --}}
+<div class="opacity" id="modal opacity">
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <div class="test">
+        <div class="slideshow-container" id="slideshow-container">
 
+            {{-- <div class="mySlides">
+                <div class="detail_rapat_popup">
+                    <div class="inner_detail_popup">
+                        <div class="status" style={{$style}}>
+                            <p>{{$item->keterangan}}</p>
+                        </div>
+                        <div class="detail1">
+                            <h2>{{$time1}}</h2>
+                        </div>
+                        <div class="detail2">
+                            <div class="skdp_box">
+                                <h4>SKDP</h4>
+                                <p>{{$item->SKPD}}</p>
+                            </div>
+                            <div class="dl_box">
+                                <h4>
+                                    Batas Waktu
+                                </h4>
+                                <p>{{$time2}}</p>
+                            </div>
+                            <div class="dp_box">
+                                <h4>
+                                    Data Pendukung
+                                </h4>
+                                <p>Ada</p>
+                            </div>
+                        </div>
+                        <div class="detail3">
+                            <div class="judul_box">
+                                <h4>
+                                    Judul Rapat
+                                </h4>
+                                <p>{{$item->title->judul}}</p>
+                            </div>
+                            <div class="progres_box">
+                                <h4>
+                                    Progres Rapat
+                                </h4>
+                                <p>{{$item->progress}}</p>
+                            </div>
+                            <div class="hasil_box">
+                                <h4>Tindak Lanjut Hasil Rapat</h4>
+                                <p>{{$item->tindak_lanjut}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+        </div>
+        <br>
+
+    </div>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
 
 
 
@@ -162,10 +149,6 @@
     </footer>
 </div>
 
-{{-- @endif --}}
-
-
-
 <script>
     function changeValueHidden(id, opt) {
         var testing = document.getElementById(id);
@@ -181,7 +164,6 @@
     function successAjax(datta){
         DATA_LEN = datta.length;
         searchData = datta;
-        // console.log(datta.length);
         idx = 1;
         pageMax = Math.ceil(DATA_LEN/10);
     }
@@ -208,7 +190,6 @@
      function ajaxError(){
         let aktifLink = document.querySelector('.aktif');
         index = 1;
-        console.log("salah")
         aktifLink.innerText = idx;
     }
 
@@ -225,7 +206,6 @@
                 'search1' : searches2
             },
             success: function (data) {
-                console.log(data);
                 successAjax(data);
                 let tableBody = document.getElementById("content-table-body");
                 let total = 1;
@@ -343,16 +323,31 @@
     $('#title-search').on('keyup', function () {
         let value1 = $('#waktu').val();
         let value2 = $('#title-search').val();
-        console.log(value2);
         getData(value1, value2, 0);
     })
 
 </script>
 <script>
-    function onClickModalOpen(id){
-        var modalid = "modal " + id;
-        var modal = document.getElementById(modalid);
-        modal.style.display = "block";
+    function onClickModalOpen(id) {
+        $.ajax({
+            type: "get",
+            url: '/search/slider',
+            data:{
+                'id': id,
+            },
+            success: function(data){
+                let sliderBody = document.getElementById("slideshow-container");
+                sliderBody.innerHTML = data;
+            },
+            complete: function(){
+                slideIndex = 1;
+                showSlides(1);
+                var modalid = "modal opacity";
+                var modal = document.getElementById(modalid);
+                modal.style.display = "block";
+            }
+        });
+
     }
 
     window.onclick = function(event) {
@@ -363,6 +358,35 @@
         }
     }
 
+
+</script>
+
+<script>
+    let slideIndex = 1;
+    // showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
 
 </script>
 <script>

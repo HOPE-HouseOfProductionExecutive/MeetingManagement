@@ -114,6 +114,7 @@ class MeetingController extends Controller
             SELECT m.id, m.tindak_lanjut, m.SKPD, m.progress, m.waktu_selesai, m.data_pendukung, m.keterangan, t.judul, t.waktu_rapat
             FROM meetings m, titles t
             WHERE t.id = m.title_id
+            ORDER BY t.waktu_rapat DESC
         ");
         return response()->json($datas);
     }
