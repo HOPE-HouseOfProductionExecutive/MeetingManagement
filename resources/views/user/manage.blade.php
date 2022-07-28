@@ -277,8 +277,9 @@
             <thead>
                 <th>No</th>
                 <th>Waktu</th>
-                <th>Judul</th>
-                <th>Progres</th>
+                <th>Judul Rapat</th>
+                <th>Tindak Lanjut Hasil Rapat</th>
+                <th>Progres Tindak Lanjut</th>
                 <th>Status</th>
             </thead>
             <tbody id="content-table-body">
@@ -312,6 +313,7 @@
                 html += "<td class='nomor'>" + (i + 1) + "</td>";
                 html += "<td class='waktu'>" + data[i].waktu_rapat + "</td>";
                 html += "<td class='judul'>" + data[i].judul + "</td>";
+                html += "<td class='tindak_lanjut'>" + data[i].judul + "</td>";
                 html += "<td class='progres'>" + data[i].progress + "</td>";
                 html += "<td>" + data[i].keterangan + "</td>";
                 html += "<td class='edit'><button id='" + data[i].id +

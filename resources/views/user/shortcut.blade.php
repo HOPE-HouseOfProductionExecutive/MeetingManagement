@@ -145,8 +145,8 @@
         <table>
             <thead>
                 <th>No</th>
-                <th>Waktu</th>
-                <th>Judul</th>
+                <th>Waktu Rapat</th>
+                <th>Judul Rapat</th>
             </thead>
             <tbody id="content-table-body">
 
