@@ -22,7 +22,7 @@
                 <div class="separate">
                     <p class="st">2. Beranda</p>
 
-                    <p>Pada Beranda terdapat tampilan singkat dari rapat yang ada. Ada tombol mata yang mana jika di klik akan memunculkan popup detail dari rapat tersebut. Pada tampilan popup, user dapat mengklik tombol selanjutnya ataupun sebelumnya pada setiap pojok layar untuk melihat tindak lanjut hasil lainnya.</p>
+                    <p>Pada Beranda terdapat tampilan singkat dari rapat yang ada. Ada tombol mata yang mana jika di klik akan memunculkan popup detail dari rapat tersebut dan apabila tombol mata tidak dapat di klik maka tidak ada tindak lanjut hasil rapat pada data tersebut. Pada tampilan popup, user dapat mengklik tombol selanjutnya ataupun sebelumnya pada setiap pojok layar untuk melihat tindak lanjut hasil lainnya.</p>
                 </div>
                 <div class="separate">
                     <p class="st">3. Pengelolaan</p>
