@@ -5,14 +5,16 @@ p{
 }
 
 
-.slideshow-container{
-    width: 100%;
-}
 
 * {box-sizing: border-box}
 body {
     margin:0;
     height: 100vh;
+}
+
+
+.slideshow-container{
+    width: 100%;
 }
 .mySlides {
     display: none
@@ -98,7 +100,7 @@ body {
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 

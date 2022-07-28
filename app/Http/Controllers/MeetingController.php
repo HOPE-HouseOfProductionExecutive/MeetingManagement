@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class MeetingController extends Controller
 {
     public function goToDashboard(){
-        $data = Title::all();
+        $data = Meetings::all();
         $total_rapat = DB::select("SELECT count(id) AS 'Total_Rapat'
         FROM meetings");
         $rapat_selesai = DB::select("SELECT count(keterangan) as Total FROM meetings
@@ -29,7 +29,84 @@ class MeetingController extends Controller
         return view('user.dashboard', compact('data', 'total_rapat', 'rapat_selesai', 'rapat_berjalan', 'rapat_terdekat'));
     }
     public function getModalDetailDash(Request $request){
-        // $data = Meetings::where('')
+        $data = Meetings::where('title_id', '=', $request->id)->get();
+        $html = '';
+        foreach($data as $item){
+            if ($item->keterangan == 'Selesai') {
+                $style = 'background:#39A952';
+            }else{
+                $style = "background:#FF0000";
+            }
+            $time = \Carbon\Carbon::parse($item->title->waktu_rapat)->locale('id');
+            $time->settings(['formatFunction' => 'translatedFormat']);
+            $time1 = $time->isoformat('dddd, DD MMMM YYYY');
+
+            $time = \Carbon\Carbon::parse($item->waktu_selesai)->locale('id');
+            $time->settings(['formatFunction' => 'translatedFormat']);
+            $time2 = $time->isoformat('DD MMMM YYYY');
+
+            if($item->data_pendukung == null){
+                $data_pendukung = 'Tidak Ada';
+            }else{
+                $data_pendukung = 'Ada';
+            }
+            $html.= '
+            <div class="mySlides">
+                <div class="detail_rapat_popup">
+                    <div class="inner_detail_popup">
+                        <div class="status" style='.$style.'>
+                            <p>'.$item->keterangan.'</p>
+                        </div>
+                        <div class="detail1">
+                            <h2>'.$time1.'</h2>
+                        </div>
+                        <div class="detail2">
+                            <div class="skdp_box">
+                                <h4>SKDP</h4>
+                                <p>'.$item->SKPD.'</p>
+                            </div>
+                            <div class="dl_box">
+                                <h4>
+                                    Batas Waktu
+                                </h4>
+                                <p>'.$time2.'</p>
+                            </div>
+                            <div class="dp_box">
+                                <h4>
+                                    Data Pendukung
+                                </h4>
+                                <p>'.$data_pendukung.'</p>
+                            </div>
+                        </div>
+                        <div class="detail3">
+                            <div class="judul_box">
+                                <h4>
+                                    Judul Rapat
+                                </h4>
+                                <p>'.$item->title->judul.'</p>
+                            </div>
+                            <div class="progres_box">
+                                <h4>
+                                    Progres Rapat
+                                </h4>
+                                <p>'.$item->progress.'</p>
+                            </div>
+                            <div class="hasil_box">
+                                <h4>Tindak Lanjut Hasil Rapat</h4>
+                                <p>'.$item->tindak_lanjut.'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+
+        return response()->json($html);
+    }
+    public function paginateHome(){
+        $datas = Title::all();
+        return response()->json($datas);
     }
 
     public function paginate(){
@@ -39,6 +116,15 @@ class MeetingController extends Controller
             WHERE t.id = m.title_id
         ");
         return response()->json($datas);
+    }
+
+    public function showMeettingTitle(){
+        $data = Title::all();
+        $title = '<option value="" disabled="disabled" selected="selected">Pilih Judul Rapat</option>';
+        foreach ($data as $key) {
+            $title .= '<option value="'.$key->id.'">'.$key->judul.'</option>';
+        }
+        return response()->json($title);
     }
 
     public function goToManage(){
@@ -112,14 +198,6 @@ class MeetingController extends Controller
         return redirect()->back()->with('success', 'Meeting deleted successfully');
     }
 
-    public function showMeettingTitle(){
-        $data = Title::all();
-        $title = '<option value="" disabled="disabled" selected="selected">Pilih Judul Rapat</option>';
-        foreach ($data as $key) {
-            $title .= '<option value="'.$key->id.'">'.$key->judul.'</option>';
-        }
-        return response()->json($title);
-    }
 
     public function getDateTitle(Request $request){
         $data = Title::find($request->title);

@@ -11,11 +11,8 @@
     <div class="opacity">
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <div class="test">
-
             <div class="slideshow-container">
 
-
-
                 <div class="mySlides">
                     <div class="detail_rapat_popup">
                         <div class="inner_detail_popup">
@@ -166,8 +163,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
             <br>
