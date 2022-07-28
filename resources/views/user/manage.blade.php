@@ -424,7 +424,6 @@
     function onClickClose(id) {
         var modalid = "modal delete " + id;
         var modal = document.getElementById(modalid);
-        // console.log(modalid);
         modal.style.display = "none";
     }
 
@@ -440,7 +439,6 @@
 <script>
     let date;
     $('#tindak').on('click', function(){
-        console.log("kontol");
         $.ajax({
             url: "/meetingTitle",
             method: "get",
