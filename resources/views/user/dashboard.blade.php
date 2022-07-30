@@ -10,11 +10,11 @@
 <body onload="getData(0);"></body>
 
 <div class="opacity" id="modal opacity">
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
     <div class="test">
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
         <div class="slideshow-container" id="slideshow-container">
-
-            {{-- <div class="mySlides">
+            
+            <!-- {{-- <div class="mySlides">
                 <div class="detail_rapat_popup">
                     <div class="inner_detail_popup">
                         <div class="status" style={{$style}}>
@@ -49,9 +49,7 @@
                                 <p>{{$item->title->judul}}</p>
                             </div>
                             <div class="progres_box">
-                                <h4>
-                                    Progres Rapat
-                                </h4>
+                                <h4>Progres Tindak Lanjut Hasil Rapat</h4>
                                 <p>{{$item->progress}}</p>
                             </div>
                             <div class="hasil_box">
@@ -61,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div> --}} -->
 
         </div>
         <br>

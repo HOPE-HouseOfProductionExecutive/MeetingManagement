@@ -316,6 +316,7 @@ footer{
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
+  z-index: 9999999999;
   position: absolute;
   top: 50%;
   width: auto;
@@ -335,10 +336,11 @@ footer{
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 32.6%;
   border-radius: 3px 0 0 3px;
 }
 .prev {
+  left: 32.6%;
   border-radius: 3px 0 0 3px;
 }
 
@@ -573,7 +575,7 @@ footer{
 }
 
 .detail_rapat_popup{
-  width: 467px;
+  width: 500px;
   height: 556px;
   display: flex;
   justify-content: center;

@@ -280,6 +280,7 @@
                 <th>Judul Rapat</th>
                 <th>Tindak Lanjut Hasil Rapat</th>
                 <th>Progres Tindak Lanjut</th>
+                <th>SKDP</th>
                 <th>Status</th>
             </thead>
             <tbody id="content-table-body">
@@ -314,6 +315,7 @@
                 html += "<td class='judul'>" + data[i].judul + "</td>";
                 html += "<td class='tindak_lanjut'>" + data[i].tindak_lanjut + "</td>";
                 html += "<td class='progres'>" + data[i].progress + "</td>";
+                html += "<td class='SKDP'>" + data[i].SKPD + "</td>";
                 html += "<td>" + data[i].keterangan + "</td>";
                 html += "<td class='edit'><button id='" + data[i].id +
                     "' onclick='onClickModalEdit(this.id)'><a href='#'><img  src='/Assets/icons/pencil-02.svg'/></a></td>";

@@ -87,7 +87,7 @@ class MeetingController extends Controller
                             </div>
                             <div class="progres_box">
                                 <h4>
-                                    Progres Rapat
+                                    Progres Tindak Lanjut Hasil Rapat
                                 </h4>
                                 <p>'.$item->progress.'</p>
                             </div>
