@@ -64,7 +64,7 @@ class MeetingController extends Controller
                             </div>
                                 <div class="hasil_box">
                                     <h4>Tindak Lanjut Hasil Rapat</h4>
-                                    <p>Beberapa hari kedepan akan a da pesta pora yang akan menenggelamkan air didalam api kemudian juga akan menjadi anak satu</p>
+                                    <p>'.$item->tindak_lanjut.'</p>
                                 </div>
                             <div class="detail2">
                                 <div class="skdp_box">

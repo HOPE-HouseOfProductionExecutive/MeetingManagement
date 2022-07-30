@@ -10,62 +10,16 @@
 <body onload="getData(0);"></body>
 
 <div class="opacity" id="modal opacity">
-    <div class="test">
+    <div class="slideshow-container" id="slideshow-container">
         <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <div class="slideshow-container" id="slideshow-container">
-            
-            <!-- {{-- <div class="mySlides">
-                <div class="detail_rapat_popup">
-                    <div class="inner_detail_popup">
-                        <div class="status" style={{$style}}>
-                            <p>{{$item->keterangan}}</p>
-                        </div>
-                        <div class="detail1">
-                            <h2>{{$time1}}</h2>
-                        </div>
-                        <div class="detail2">
-                            <div class="skdp_box">
-                                <h4>SKDP</h4>
-                                <p>{{$item->SKPD}}</p>
-                            </div>
-                            <div class="dl_box">
-                                <h4>
-                                    Batas Waktu
-                                </h4>
-                                <p>{{$time2}}</p>
-                            </div>
-                            <div class="dp_box">
-                                <h4>
-                                    Data Pendukung
-                                </h4>
-                                <p>Ada</p>
-                            </div>
-                        </div>
-                        <div class="detail3">
-                            <div class="judul_box">
-                                <h4>
-                                    Judul Rapat
-                                </h4>
-                                <p>{{$item->title->judul}}</p>
-                            </div>
-                            <div class="progres_box">
-                                <h4>Progres Tindak Lanjut Hasil Rapat</h4>
-                                <p>{{$item->progress}}</p>
-                            </div>
-                            <div class="hasil_box">
-                                <h4>Tindak Lanjut Hasil Rapat</h4>
-                                <p>{{$item->tindak_lanjut}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}} -->
+        <div id="test-cont">
 
         </div>
-        <br>
-
+        <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+    <br>
+
+
 </div>
 
 <div class="part-dashboard">
@@ -223,7 +177,8 @@
                 'id': id,
             },
             success: function(data){
-                let sliderBody = document.getElementById("slideshow-container");
+                let sliderBody = document.getElementById("test-cont");
+                // let sliderBody = document.getElementById("slideshow-container");
                 sliderBody.innerHTML = data;
             },
             complete: function(){
