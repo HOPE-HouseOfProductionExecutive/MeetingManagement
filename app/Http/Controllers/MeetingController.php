@@ -54,15 +54,21 @@ class MeetingController extends Controller
             <div class="mySlides">
                 <div class="detail_rapat_popup">
                     <div class="inner_detail_popup">
-                        <div class="status" style='.$style.'>
-                            <p>'.$item->keterangan.'</p>
-                        </div>
-                        <div class="detail1">
-                            <h2>'.$time1.'</h2>
-                        </div>
-                        <div class="detail2">
-                            <div class="skdp_box">
-                                <h4>SKDP</h4>
+                        <div class="detail_upper">
+                            <div class="status" style='.$style.'>
+                                <p>'.$item->keterangan.'</p>
+                                </div>
+                                <div class="detail1">
+                                <h2>'.$time1.'</h2>
+                                </div>
+                            </div>
+                                <div class="hasil_box">
+                                    <h4>Tindak Lanjut Hasil Rapat</h4>
+                                    <p>Beberapa hari kedepan akan a da pesta pora yang akan menenggelamkan air didalam api kemudian juga akan menjadi anak satu</p>
+                                </div>
+                            <div class="detail2">
+                                <div class="skdp_box">
+                                <h4>SKPD</h4>
                                 <p>'.$item->SKPD.'</p>
                             </div>
                             <div class="dl_box">
@@ -90,10 +96,6 @@ class MeetingController extends Controller
                                     Progres Tindak Lanjut Hasil Rapat
                                 </h4>
                                 <p>'.$item->progress.'</p>
-                            </div>
-                            <div class="hasil_box">
-                                <h4>Tindak Lanjut Hasil Rapat</h4>
-                                <p>'.$item->tindak_lanjut.'</p>
                             </div>
                         </div>
                     </div>
