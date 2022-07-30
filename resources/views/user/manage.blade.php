@@ -316,7 +316,7 @@
                 html += "<td class='tindak_lanjut'>" + data[i].tindak_lanjut + "</td>";
                 html += "<td class='progres'>" + data[i].progress + "</td>";
                 html += "<td class='SKDP'>" + data[i].SKPD + "</td>";
-                html += "<td>" + data[i].keterangan + "</td>";
+                html += "<td class='status'>" + data[i].keterangan + "</td>";
                 html += "<td class='edit'><button id='" + data[i].id +
                     "' onclick='onClickModalEdit(this.id)'><a href='#'><img  src='/Assets/icons/pencil-02.svg'/></a></td>";
                 html += "<td class='trash'><button id='" + data[i].id +
