@@ -218,29 +218,49 @@ class MeetingController extends Controller
         if($request->ajax()) {
             $data = null;
 
-            if($request->search != "" && $request->search1 == ""){
+            if($request->search != "" && $request->search1 == "" && $request->search2 == ""){
                 $data = Title::where([
                     'waktu_rapat' => $request->search
                 ])->get();
             }
-            else if($request->search == "" && $request->search1 != ""){
+            else if($request->search == "" && $request->search1 != "" && $request->search2 == ""){
                 $data = Title::where('judul', 'LIKE', '%'.$request->search1.'%')->get();
             }
-            else if($request->search != "" && $request->search1 != ""){
-                // $data = Title::where([
-                //     'waktu_rapat' => $request->search
-                // ])->get();
-                // $data = Title::where([
-                //     'waktu_rapat' => $request->search,
-                //     'judul' => $request->search1
-                // ])->get();
+            else if($request->search == "" && $request->search1 == "" && $request->search2 != ""){
                 $data = DB::select("
-                    SELECT * FROM titles
-                    WHERE judul LIKE '%$request->search1%'
-                    AND waktu_rapat = '$request->search'
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search != "" && $request->search1 != "" && $request->search2 == ""){
+                $data = DB::select("
+                    SELECT * FROM titles t
+                    WHERE t.judul LIKE '%$request->search1%'
+                    AND t.waktu_rapat = '$request->search'
+                ");
+            }
+            else if($request->search != "" && $request->search1 == "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search != "" && $request->search1 != "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT * FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    WHERE t.judul LIKE '%$request->search1%'
+                    AND t.waktu_rapat = '$request->search'
+                    AND m.keterangan LIKE '$request->search2%'
 
                 ");
             }
+
+
             if($data) {
                 return response()->json($data);
             }
