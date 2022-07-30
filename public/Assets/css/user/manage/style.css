@@ -53,6 +53,14 @@ button {
     cursor: pointer;
 }
 
+td.edit{
+    padding: 10px 8px;
+}
+
+td.trash{
+    padding: 10px 15px 10px 5px;
+}
+
 .manage_layer {
     box-sizing: border-box;
     padding: 20px 38px 80px 39px;
@@ -138,19 +146,18 @@ button {
 }
 
 .judul {
-    width: 35%;
+    width: 30%;
 }
 
 .tindak_lanjut{
     width: 22%;
 }
 
-
-.status {
-    width: 9%;
+.progres {
+    width: 15%;
 }
 
-.progres {
+.SKDP{
     width: 15%;
 }
 
