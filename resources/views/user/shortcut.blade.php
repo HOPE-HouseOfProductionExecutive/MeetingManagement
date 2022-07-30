@@ -13,55 +13,6 @@
     <div class="test">
         <div class="slideshow-container" id="slideshow-container">
 
-            {{-- <div class="mySlides">
-                <div class="detail_rapat_popup">
-                    <div class="inner_detail_popup">
-                        <div class="status" style={{$style}}>
-                            <p>{{$item->keterangan}}</p>
-                        </div>
-                        <div class="detail1">
-                            <h2>{{$time1}}</h2>
-                        </div>
-                        <div class="detail2">
-                            <div class="skdp_box">
-                                <h4>SKDP</h4>
-                                <p>{{$item->SKPD}}</p>
-                            </div>
-                            <div class="dl_box">
-                                <h4>
-                                    Batas Waktu
-                                </h4>
-                                <p>{{$time2}}</p>
-                            </div>
-                            <div class="dp_box">
-                                <h4>
-                                    Data Pendukung
-                                </h4>
-                                <p>Ada</p>
-                            </div>
-                        </div>
-                        <div class="detail3">
-                            <div class="judul_box">
-                                <h4>
-                                    Judul Rapat
-                                </h4>
-                                <p>{{$item->title->judul}}</p>
-                            </div>
-                            <div class="progres_box">
-                                <h4>
-                                    Progres Rapat
-                                </h4>
-                                <p>{{$item->progress}}</p>
-                            </div>
-                            <div class="hasil_box">
-                                <h4>Tindak Lanjut Hasil Rapat</h4>
-                                <p>{{$item->tindak_lanjut}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
         </div>
         <br>
 
@@ -123,6 +74,38 @@
                     </ul>
                 </details>
             </div>
+
+            <div class="shortcut_status">
+                <p>Status Tindak Lanjut</p>
+                <details class="custom-select">
+                    <summary class="radios" id="searchStatus">
+                        <input type="radio" name="items" onclick="changeValueHidden(this.id, 'status')" id="items"
+                            title="Pilih Status Tindak Lanjut" checked>
+                        <input type="radio" name="items" onclick="changeValueHidden(this.id, 'status')" id="items-null"
+                            title="Pilih Status Tindak Lanjut" value="">
+                        <input type="radio" name="items" id="belum" onclick="changeValueHidden(this.id, 'status')" title="Belum Selesai" value="Belum Selesai">
+                        <input type="radio" name="items" id="selesai" onclick="changeValueHidden(this.id, 'status')" title="Selesai" value="Selesai">
+                    </summary>
+                    <input type="hidden" id="status" name="status" value="">
+                    <ul class="list">
+                        <li>
+                            <label for="items-null">
+                                Pilih Status Tindak Lanjut
+                            </label>
+                        </li>
+                        <li>
+                            <label for="belum">
+                               Belum Selesai
+                            </label>
+                        </li>
+                        <li>
+                            <label for="selesai">
+                                Selesai
+                            </label>
+                        </li>
+                    </ul>
+                </details>
+            </div>
     </div>
 </div>
 
@@ -154,7 +137,7 @@
         var testing = document.getElementById(id);
         if (opt.includes("waktu")) {
             var input = document.getElementById('waktu');
-        } else {
+        } else if (opt.includes("status")) {
             var input = document.getElementById('status');
         }
         input.value = testing.value;
@@ -193,7 +176,7 @@
         aktifLink.innerText = idx;
     }
 
-    function getData(searches1, searches2, index) {
+    function getData(searches1, searches2, searches3, index) {
         let leftArrow = document.querySelector('.arrow-left');
         let rightArrow = document.querySelector('.arrow-right');
         let aktifLink = document.querySelector('.aktif');
@@ -203,7 +186,8 @@
             url: '/search',
             data: {
                 'search': searches1,
-                'search1' : searches2
+                'search1' : searches2,
+                'search2' : searches3
             },
             success: function (data) {
                 successAjax(data);
@@ -236,9 +220,6 @@
             }
 
         });
-        // if(index === searchData.length){
-        // }else{
-        // }
     }
 
     function handleLeftArrowClick(aktifPageNumber, leftArrow, rightArrow) {
@@ -315,15 +296,24 @@
 
 </script>
 <script>
+    $('#searchStatus').on('change', function () {
+        let value1 = $('#waktu').val();
+        let value2 = $('#title-search').val();
+        let value3 = $('#status').val();
+        console.log(value3);
+        getData(value1, value2, value3, 0);
+    });
     $('#searchWaktu').on('change', function () {
         let value1 = $('#waktu').val();
         let value2 = $('#title-search').val();
-        getData(value1, value2, 0);
+        let value3 = $('#status').val();
+        getData(value1, value2, value3, 0);
     });
     $('#title-search').on('keyup', function () {
         let value1 = $('#waktu').val();
         let value2 = $('#title-search').val();
-        getData(value1, value2, 0);
+        let value3 = $('#status').val();
+        getData(value1, value2, value3, 0);
     })
 
 </script>
@@ -360,10 +350,8 @@
 
 
 </script>
-
 <script>
     let slideIndex = 1;
-    // showSlides(slideIndex);
 
     function plusSlides(n) {
         showSlides(slideIndex += n);

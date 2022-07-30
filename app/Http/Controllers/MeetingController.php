@@ -64,7 +64,7 @@ class MeetingController extends Controller
                             </div>
                                 <div class="hasil_box">
                                     <h4>Tindak Lanjut Hasil Rapat</h4>
-                                    <p>Beberapa hari kedepan akan a da pesta pora yang akan menenggelamkan air didalam api kemudian juga akan menjadi anak satu</p>
+                                    <p>'.$item->tindak_lanjut.'</p>
                                 </div>
                             <div class="detail2">
                                 <div class="skdp_box">
@@ -220,29 +220,59 @@ class MeetingController extends Controller
         if($request->ajax()) {
             $data = null;
 
-            if($request->search != "" && $request->search1 == ""){
+            if($request->search != "" && $request->search1 == "" && $request->search2 == ""){
                 $data = Title::where([
                     'waktu_rapat' => $request->search
                 ])->get();
             }
-            else if($request->search == "" && $request->search1 != ""){
+            else if($request->search == "" && $request->search1 != "" && $request->search2 == ""){
                 $data = Title::where('judul', 'LIKE', '%'.$request->search1.'%')->get();
             }
-            else if($request->search != "" && $request->search1 != ""){
-                // $data = Title::where([
-                //     'waktu_rapat' => $request->search
-                // ])->get();
-                // $data = Title::where([
-                //     'waktu_rapat' => $request->search,
-                //     'judul' => $request->search1
-                // ])->get();
+            else if($request->search == "" && $request->search1 == "" && $request->search2 != ""){
                 $data = DB::select("
-                    SELECT * FROM titles
-                    WHERE judul LIKE '%$request->search1%'
-                    AND waktu_rapat = '$request->search'
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search != "" && $request->search1 != "" && $request->search2 == ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id FROM titles t
+                    WHERE t.judul LIKE '%$request->search1%'
+                    AND t.waktu_rapat = '$request->search'
+                ");
+            }
+            else if($request->search != "" && $request->search1 == "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND t.waktu_rapat = '$request->search'
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search == "" && $request->search1 != "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND t.judul LIKE '%$request->search1%'
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search != "" && $request->search1 != "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND t.judul LIKE '%$request->search1%'
+                    AND t.waktu_rapat = '$request->search'
+                    AND m.keterangan LIKE '$request->search2%'
 
                 ");
             }
+
+
             if($data) {
                 return response()->json($data);
             }
