@@ -236,7 +236,7 @@ class MeetingController extends Controller
             }
             else if($request->search != "" && $request->search1 != "" && $request->search2 == ""){
                 $data = DB::select("
-                    SELECT * FROM titles t
+                    SELECT t.waktu_rapat, t.judul, t.id FROM titles t
                     WHERE t.judul LIKE '%$request->search1%'
                     AND t.waktu_rapat = '$request->search'
                 ");
@@ -246,14 +246,24 @@ class MeetingController extends Controller
                     SELECT t.waktu_rapat, t.judul, t.id
                     FROM titles t, Meetings m
                     WHERE t.id = m.title_id
+                    AND t.waktu_rapat = '$request->search'
+                    AND m.keterangan LIKE '$request->search2%'
+                ");
+            }
+            else if($request->search == "" && $request->search1 != "" && $request->search2 != ""){
+                $data = DB::select("
+                    SELECT t.waktu_rapat, t.judul, t.id
+                    FROM titles t, Meetings m
+                    WHERE t.id = m.title_id
+                    AND t.judul LIKE '%$request->search1%'
                     AND m.keterangan LIKE '$request->search2%'
                 ");
             }
             else if($request->search != "" && $request->search1 != "" && $request->search2 != ""){
                 $data = DB::select("
-                    SELECT * FROM titles t, Meetings m
+                    SELECT t.waktu_rapat, t.judul, t.id FROM titles t, Meetings m
                     WHERE t.id = m.title_id
-                    WHERE t.judul LIKE '%$request->search1%'
+                    AND t.judul LIKE '%$request->search1%'
                     AND t.waktu_rapat = '$request->search'
                     AND m.keterangan LIKE '$request->search2%'
 
