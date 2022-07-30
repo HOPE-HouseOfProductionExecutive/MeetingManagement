@@ -280,7 +280,7 @@
                 <th>Judul Rapat</th>
                 <th>Tindak Lanjut Hasil Rapat</th>
                 <th>Progres Tindak Lanjut</th>
-                <th>SKDP</th>
+                <th>SKPD</th>
                 <th>Status</th>
             </thead>
             <tbody id="content-table-body">
